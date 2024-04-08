@@ -1,2 +1,8 @@
-package main;public class MainClass {
+package main;
+
+public class MainClass {
+
+    public static void main(String[] args) {
+        new Game();
+    }
 }

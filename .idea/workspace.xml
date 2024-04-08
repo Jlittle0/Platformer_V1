@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Ep 4 - Complete">
-      <change afterPath="$PROJECT_DIR$/src/utilz/constants.java" afterDir="false" />
+    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Ep 5 - Complete">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/inputs/keyboardInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/keyboardInputs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/inputs/mouseInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/mouseInputs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/gamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/gamePanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,12 +85,21 @@
       <option name="project" value="LOCAL" />
       <updated>1712605666947</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Ep 5 - Complete">
+      <option name="closed" value="true" />
+      <created>1712609425789</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712609425789</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Ep 3 - Complete" />
     <MESSAGE value="Ep 4 - Complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ep 4 - Complete" />
+    <MESSAGE value="Ep 5 - Complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ep 5 - Complete" />
   </component>
 </project>

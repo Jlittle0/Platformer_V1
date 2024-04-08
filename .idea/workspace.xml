@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/inputs/keyboardInputs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/inputs/mouseInputs.java" afterDir="false" />
+    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Ep 3 - Complete">
+      <change afterPath="$PROJECT_DIR$/resources/player_sprites.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MainClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platformer Reference.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Platformer Reference.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputs/mouseInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/mouseInputs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/gamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/gamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/gameViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/gameViewer.java" afterDir="false" />
     </list>
@@ -50,6 +49,11 @@
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Game" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main.MainClass" />
@@ -68,6 +72,19 @@
       <option name="presentableId" value="Default" />
       <updated>1712520582172</updated>
     </task>
+    <task id="LOCAL-00001" summary="Ep 3 - Complete">
+      <option name="closed" value="true" />
+      <created>1712546722546</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1712546722547</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Ep 3 - Complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ep 3 - Complete" />
   </component>
 </project>

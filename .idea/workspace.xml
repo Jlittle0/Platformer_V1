@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Ep 7 - Complete">
-      <change afterPath="$PROJECT_DIR$/resources/level_one_data.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/outside_sprites.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/levels/Level.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/levels/LevelHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utilz/LoadSave.java" afterDir="false" />
+    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Ep 8 - Complete">
+      <change afterPath="$PROJECT_DIR$/src/utilz/HelpMethods.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/levels/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/levels/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/levels/LevelHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/levels/LevelHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/gamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/gamePanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +117,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712612293882</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Ep 8 - Complete">
+      <option name="closed" value="true" />
+      <created>1712622267440</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1712622267440</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -128,6 +134,7 @@
     <MESSAGE value="Ep 5 - Complete" />
     <MESSAGE value="Ep 6 - Complete" />
     <MESSAGE value="Ep 7 - Complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ep 7 - Complete" />
+    <MESSAGE value="Ep 8 - Complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ep 8 - Complete" />
   </component>
 </project>

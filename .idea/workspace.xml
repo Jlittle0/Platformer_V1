@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Ep 6 - Complete">
-      <change afterPath="$PROJECT_DIR$/src/entities/entity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/player.java" afterDir="false" />
+    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Ep 7 - Complete">
+      <change afterPath="$PROJECT_DIR$/resources/level_one_data.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/outside_sprites.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/levels/Level.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/levels/LevelHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utilz/LoadSave.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/inputs/keyboardInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/keyboardInputs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/inputs/mouseInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/mouseInputs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/gamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/gamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/gameViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/gameViewer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +46,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/joshlittle/IdeaProjects/Platformer Reference/resources",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -52,6 +54,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources" />
     </key>
@@ -106,7 +111,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712610418219</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Ep 7 - Complete">
+      <option name="closed" value="true" />
+      <created>1712612293882</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1712612293882</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -114,6 +127,7 @@
     <MESSAGE value="Ep 4 - Complete" />
     <MESSAGE value="Ep 5 - Complete" />
     <MESSAGE value="Ep 6 - Complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ep 6 - Complete" />
+    <MESSAGE value="Ep 7 - Complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ep 7 - Complete" />
   </component>
 </project>

@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Ep 9 - Complete&#10;&#10;*Creating hitboxes and checking for collision">
+    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Ep 10 - Complete&#10;&#10;*Fixing character floating 1 pixel above ground&#10;*Added animations for falling and jumping&#10;* Added gravity">
+      <change afterPath="$PROJECT_DIR$/src/gameStates/Gamestate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gameStates/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gameStates/Playing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gameStates/State.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gameStates/Statemethods.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/inputs/keyboardInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/keyboardInputs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilz/HelpMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/HelpMethods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputs/mouseInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/mouseInputs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package-info" />
+        <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -130,8 +137,27 @@
       <option name="project" value="LOCAL" />
       <updated>1712624497773</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Ep 10 - Complete&#10;&#10;*Fixing character floating 1 pixel above ground&#10;*Added animations for falling and jumping&#10;* Added gravity">
+      <option name="closed" value="true" />
+      <created>1712781907377</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1712781907377</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Ep 3 - Complete" />
@@ -141,7 +167,8 @@
     <MESSAGE value="Ep 7 - Complete" />
     <MESSAGE value="Ep 8 - Complete" />
     <MESSAGE value="Ep 9 - Complete&#10;&#10;*Creating hitboxes and checking for collision" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ep 9 - Complete&#10;&#10;*Creating hitboxes and checking for collision" />
+    <MESSAGE value="Ep 10 - Complete&#10;&#10;*Fixing character floating 1 pixel above ground&#10;*Added animations for falling and jumping&#10;* Added gravity" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ep 10 - Complete&#10;&#10;*Fixing character floating 1 pixel above ground&#10;*Added animations for falling and jumping&#10;* Added gravity" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

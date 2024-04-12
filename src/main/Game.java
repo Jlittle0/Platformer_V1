@@ -1,6 +1,8 @@
 package main;
 import entities.player;
-import levels.LevelHandler;
+import gameStates.Gamestate;
+import gameStates.Playing;
+import gameStates.Menu;
 
 import java.awt.*;
 
@@ -11,8 +13,10 @@ public class Game implements Runnable{
     private Thread gameThread;
     private final int FPS_SET = 120;
     private final int UPS_SET = 200;
-    private player player;
-    private LevelHandler levelHandler;
+
+    private Playing playing;
+    private Menu menu;
+
 
     public final static int TILES_DEFAULT_SIZE = 32;
     public final static float SCALE = 2.0f;
@@ -32,9 +36,8 @@ public class Game implements Runnable{
     }
 
     private void initClasses() {
-        levelHandler = new LevelHandler(this);
-        player = new player(200, 200, (int)(64 * Game.SCALE), (int)(40 * Game.SCALE));
-        player.loadLvlData(levelHandler.getCurrentLevel().getLevelData());
+        menu = new Menu(this);
+        playing = new Playing(this);
     }
 
     private void startGameLoop() {
@@ -43,13 +46,29 @@ public class Game implements Runnable{
     }
 
     public void update() {
-        player.update();
-        levelHandler.update();
+        switch (Gamestate.state) {
+            case PLAYING:
+                playing.update();
+                break;
+            case MENU:
+                menu.update();
+                break;
+            default:
+                break;
+        }
     }
 
     public void render(Graphics g) {
-        levelHandler.draw(g);
-        player.render(g);
+        switch (Gamestate.state) {
+            case PLAYING:
+                playing.draw(g);
+                break;
+            case MENU:
+                menu.draw(g);
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
@@ -97,11 +116,17 @@ public class Game implements Runnable{
     }
 
     public void windowFocusLost() {
-        player.resetDirBooleans();
+        if (Gamestate.state == Gamestate.PLAYING)
+            playing.getPlayer().resetDirBooleans();
     }
 
-    public player getPlayer() {
-        return player;
+
+    public Menu getMenu() {
+        return menu;
+    }
+
+    public Playing getPlaying() {
+        return playing;
     }
 
 }

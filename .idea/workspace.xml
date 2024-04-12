@@ -4,16 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Ep 10 - Complete&#10;&#10;*Fixing character floating 1 pixel above ground&#10;*Added animations for falling and jumping&#10;* Added gravity">
-      <change afterPath="$PROJECT_DIR$/src/gameStates/Gamestate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gameStates/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gameStates/Playing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gameStates/State.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gameStates/Statemethods.java" afterDir="false" />
+    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Ep 11 - Complete&#10;&#10;*Added gamestates to allow user to switch between menu and playing etc.">
+      <change afterPath="$PROJECT_DIR$/resources/button_atlas.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/menu_background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/MenuButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/inputs/keyboardInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/keyboardInputs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameStates/Gamestate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameStates/Gamestate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameStates/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameStates/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameStates/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameStates/State.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/inputs/mouseInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/mouseInputs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gameViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/gameViewer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilz/LoadSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/LoadSave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilz/constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/constants.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +150,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712781907377</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Ep 11 - Complete&#10;&#10;*Added gamestates to allow user to switch between menu and playing etc.">
+      <option name="closed" value="true" />
+      <created>1712940283777</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1712940283777</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -168,7 +181,8 @@
     <MESSAGE value="Ep 8 - Complete" />
     <MESSAGE value="Ep 9 - Complete&#10;&#10;*Creating hitboxes and checking for collision" />
     <MESSAGE value="Ep 10 - Complete&#10;&#10;*Fixing character floating 1 pixel above ground&#10;*Added animations for falling and jumping&#10;* Added gravity" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ep 10 - Complete&#10;&#10;*Fixing character floating 1 pixel above ground&#10;*Added animations for falling and jumping&#10;* Added gravity" />
+    <MESSAGE value="Ep 11 - Complete&#10;&#10;*Added gamestates to allow user to switch between menu and playing etc." />
+    <option name="LAST_COMMIT_MESSAGE" value="Ep 11 - Complete&#10;&#10;*Added gamestates to allow user to switch between menu and playing etc." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

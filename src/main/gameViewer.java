@@ -9,9 +9,9 @@ public class gameViewer extends JFrame {
          jframe = new JFrame();
          jframe.setDefaultCloseOperation(EXIT_ON_CLOSE);
          jframe.add(gamePanel);
+        jframe.pack();
          jframe.setLocationRelativeTo(null);
          jframe.setResizable(false);
-         jframe.pack();
          jframe.setVisible(true);
          jframe.addWindowFocusListener(new WindowFocusListener() {
              @Override

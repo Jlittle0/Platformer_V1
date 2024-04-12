@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="#12 &#10;&#10;*Added Menu Buttons &amp; the option to exit the game etc.&#10;*Fixed some bugs related to playermovement speed being independent from GameScale and the hitbox of the player being floats instead of ints creating problems when gamescale wasn't an integer.">
-      <change afterPath="$PROJECT_DIR$/resources/pause_menu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sound_button.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/urm_buttons.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/volume_buttons.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/PauseButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/PauseOverlay.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/SoundButton.java" afterDir="false" />
+    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Edit Progress 13 &#10;&#10;*Added pause menu into the game and also the button associated with them&#10;*Working on adding volume slider to affect sound effects and music">
+      <change afterPath="$PROJECT_DIR$/src/ui/UrmButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/VolumeButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gameStates/Playing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameStates/Playing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputs/mouseInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/mouseInputs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/PauseOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/PauseOverlay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilz/LoadSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/LoadSave.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilz/constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/constants.java" afterDir="false" />
     </list>
@@ -163,7 +160,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712942818274</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Edit Progress 13 &#10;&#10;*Added pause menu into the game and also the button associated with them&#10;*Working on adding volume slider to affect sound effects and music">
+      <option name="closed" value="true" />
+      <created>1712952877016</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1712952877016</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -188,7 +193,8 @@
     <MESSAGE value="Ep 10 - Complete&#10;&#10;*Fixing character floating 1 pixel above ground&#10;*Added animations for falling and jumping&#10;* Added gravity" />
     <MESSAGE value="Ep 11 - Complete&#10;&#10;*Added gamestates to allow user to switch between menu and playing etc." />
     <MESSAGE value="#12 &#10;&#10;*Added Menu Buttons &amp; the option to exit the game etc.&#10;*Fixed some bugs related to playermovement speed being independent from GameScale and the hitbox of the player being floats instead of ints creating problems when gamescale wasn't an integer." />
-    <option name="LAST_COMMIT_MESSAGE" value="#12 &#10;&#10;*Added Menu Buttons &amp; the option to exit the game etc.&#10;*Fixed some bugs related to playermovement speed being independent from GameScale and the hitbox of the player being floats instead of ints creating problems when gamescale wasn't an integer." />
+    <MESSAGE value="Edit Progress 13 &#10;&#10;*Added pause menu into the game and also the button associated with them&#10;*Working on adding volume slider to affect sound effects and music" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit Progress 13 &#10;&#10;*Added pause menu into the game and also the button associated with them&#10;*Working on adding volume slider to affect sound effects and music" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

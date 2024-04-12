@@ -13,7 +13,7 @@ public class Playing extends State implements Statemethods {
     private entities.player player;
     private LevelHandler levelHandler;
     private PauseOverlay pauseOverlay;
-    private boolean paused = true;
+    private boolean paused = false;
 
     public Playing(Game game) {
         super(game);
@@ -24,22 +24,26 @@ public class Playing extends State implements Statemethods {
         levelHandler = new LevelHandler(game);
         player = new player(200, 200, (int)(64 * Game.SCALE), (int)(40 * Game.SCALE));
         player.loadLvlData(levelHandler.getCurrentLevel().getLevelData());
-        pauseOverlay = new PauseOverlay();
+        pauseOverlay = new PauseOverlay(this);
     }
 
     @Override
     public void update() {
-        levelHandler.update();
-        player.update();
-
-        pauseOverlay.update();
+        if (!paused) {
+            levelHandler.update();
+            player.update();
+        } else {
+            pauseOverlay.update();
+        }
     }
 
     @Override
     public void draw(Graphics g) {
         levelHandler.draw(g);
         player.render(g);
-        pauseOverlay.draw(g);
+
+        if (paused)
+            pauseOverlay.draw(g);
     }
 
     @Override
@@ -53,6 +57,11 @@ public class Playing extends State implements Statemethods {
     public void mousePressed(MouseEvent e) {
         if (paused)
             pauseOverlay.mousePressed(e);
+    }
+
+    public void mouseDragged(MouseEvent e) {
+        if (paused)
+            pauseOverlay.mouseDragged(e);
     }
 
     @Override
@@ -79,8 +88,8 @@ public class Playing extends State implements Statemethods {
             case KeyEvent.VK_SPACE:
                 player.setJump(true);
                 break;
-            case KeyEvent.VK_BACK_SPACE:
-                Gamestate.state = Gamestate.MENU;
+            case KeyEvent.VK_ESCAPE:
+                paused = !paused;
                 break;
         }
     }
@@ -98,6 +107,10 @@ public class Playing extends State implements Statemethods {
                 player.setJump(false);
                 break;
         }
+    }
+
+    public void unpauseGame() {
+        paused = false;
     }
 
     public void windowFocusLost() {

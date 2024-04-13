@@ -1,5 +1,6 @@
 package utilz;
 
+import entities.Crabby;
 import main.Game;
 
 import javax.imageio.ImageIO;
@@ -7,6 +8,9 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+
+import static utilz.constants.EnemyConstants.CRABBY;
 
 public class LoadSave {
 
@@ -21,6 +25,10 @@ public class LoadSave {
     public static final String URM_BUTTONS = "urm_buttons.png";
     public static final String VOLUME_BUTTONS = "volume_buttons.png";
     public static final String MENU_BACKGROUND_IMG = "background_menu.png";
+    public static final String PLAYING_BACKGROUND_IMG = "playing_bg_img.png";
+    public static final String BIG_CLOUDS = "big_clouds.png";
+    public static final String SMALL_CLOUDS = "small_clouds.png";
+    public static final String CRABBY_SPRITE = "crabby_sprite.png";
 
     public static BufferedImage GetSpriteAtlas(String fileName) {
         BufferedImage img = null;
@@ -37,6 +45,22 @@ public class LoadSave {
             }
         }
         return img;
+    }
+
+    public static ArrayList<Crabby> GetCrabs() {
+        // Using the green value of the level map to determine where Crab enemies
+        // should be created and located
+        BufferedImage img = GetSpriteAtlas(LEVEL_ONE_DATA);
+        ArrayList<Crabby> list = new ArrayList<Crabby>();
+
+        for (int j = 0; j < img.getHeight(); j++)
+            for (int i = 0; i < img.getWidth(); i++) {
+                Color color = new Color(img.getRGB(i, j));
+                int value = color.getGreen();
+                if (value == CRABBY)
+                    list.add(new Crabby(i * Game.TILES_SIZE, j * Game.TILES_SIZE));
+            }
+        return list;
     }
 
     public static int[][] GetLevelData() {

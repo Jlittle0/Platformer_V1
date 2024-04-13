@@ -4,18 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Edit Progress 13.5 &#10;&#10;*Added pause menu into the game and also the button associated with them&#10;*Finished adding volume slider to affect sound effects and music and also create bounds so that the button cannot extend past the slider.">
-      <change afterPath="$PROJECT_DIR$/resources/background_menu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/level_one_data_long.png" afterDir="false" />
+    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Edit Progress 14&#10;&#10;*Added menu background image so that it's not just a white screen&#10;*Added an automatic scrolling funtion that allows the player to move to the level off their screen by checking position and creating an offset if they're in the first 20% or last 20% of the level.">
+      <change afterPath="$PROJECT_DIR$/resources/big_clouds.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/crabby_sprite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/playing_bg_img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/small_clouds.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/Crabby.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/Enemy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/EnemyManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameStates/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameStates/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gameStates/Playing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameStates/Playing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/levels/LevelHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/levels/LevelHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/gameViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/gameViewer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilz/HelpMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/HelpMethods.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilz/LoadSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/LoadSave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilz/constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/constants.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +180,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712956971655</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Edit Progress 14&#10;&#10;*Added menu background image so that it's not just a white screen&#10;*Added an automatic scrolling funtion that allows the player to move to the level off their screen by checking position and creating an offset if they're in the first 20% or last 20% of the level.">
+      <option name="closed" value="true" />
+      <created>1712974127959</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1712974127959</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -206,7 +215,8 @@
     <MESSAGE value="#12 &#10;&#10;*Added Menu Buttons &amp; the option to exit the game etc.&#10;*Fixed some bugs related to playermovement speed being independent from GameScale and the hitbox of the player being floats instead of ints creating problems when gamescale wasn't an integer." />
     <MESSAGE value="Edit Progress 13 &#10;&#10;*Added pause menu into the game and also the button associated with them&#10;*Working on adding volume slider to affect sound effects and music" />
     <MESSAGE value="Edit Progress 13.5 &#10;&#10;*Added pause menu into the game and also the button associated with them&#10;*Finished adding volume slider to affect sound effects and music and also create bounds so that the button cannot extend past the slider." />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit Progress 13.5 &#10;&#10;*Added pause menu into the game and also the button associated with them&#10;*Finished adding volume slider to affect sound effects and music and also create bounds so that the button cannot extend past the slider." />
+    <MESSAGE value="Edit Progress 14&#10;&#10;*Added menu background image so that it's not just a white screen&#10;*Added an automatic scrolling funtion that allows the player to move to the level off their screen by checking position and creating an offset if they're in the first 20% or last 20% of the level." />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit Progress 14&#10;&#10;*Added menu background image so that it's not just a white screen&#10;*Added an automatic scrolling funtion that allows the player to move to the level off their screen by checking position and creating an offset if they're in the first 20% or last 20% of the level." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

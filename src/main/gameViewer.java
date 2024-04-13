@@ -9,7 +9,7 @@ public class gameViewer extends JFrame {
          jframe = new JFrame();
          jframe.setDefaultCloseOperation(EXIT_ON_CLOSE);
          jframe.add(gamePanel);
-        jframe.pack();
+         jframe.pack();
          jframe.setLocationRelativeTo(null);
          jframe.setResizable(false);
          jframe.setVisible(true);

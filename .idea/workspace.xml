@@ -4,17 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Edit Progress 14&#10;&#10;*Added menu background image so that it's not just a white screen&#10;*Added an automatic scrolling funtion that allows the player to move to the level off their screen by checking position and creating an offset if they're in the first 20% or last 20% of the level.">
-      <change afterPath="$PROJECT_DIR$/resources/big_clouds.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/crabby_sprite.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/playing_bg_img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/small_clouds.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/Crabby.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/Enemy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/EnemyManager.java" afterDir="false" />
+    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Edit Progress 16&#10;&#10;*Added crab enemies to the game and created the enemy manager to be able implement other enemies in the future.&#10;* Used green value of level mapper to indicate if an enemy should exist and where it should be placed.">
+      <change afterPath="$PROJECT_DIR$/resources/health_power_bar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/GameOverOverlay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/player_sprites.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/player_sprites.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Crabby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Crabby.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/EnemyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/EnemyManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gameStates/Playing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameStates/Playing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/levels/LevelHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/levels/LevelHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilz/HelpMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/HelpMethods.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilz/LoadSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/LoadSave.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilz/constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/constants.java" afterDir="false" />
     </list>
@@ -188,7 +191,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712974127959</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Edit Progress 16&#10;&#10;*Added crab enemies to the game and created the enemy manager to be able implement other enemies in the future.&#10;* Used green value of level mapper to indicate if an enemy should exist and where it should be placed.">
+      <option name="closed" value="true" />
+      <created>1713040306145</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1713040306145</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -216,7 +227,8 @@
     <MESSAGE value="Edit Progress 13 &#10;&#10;*Added pause menu into the game and also the button associated with them&#10;*Working on adding volume slider to affect sound effects and music" />
     <MESSAGE value="Edit Progress 13.5 &#10;&#10;*Added pause menu into the game and also the button associated with them&#10;*Finished adding volume slider to affect sound effects and music and also create bounds so that the button cannot extend past the slider." />
     <MESSAGE value="Edit Progress 14&#10;&#10;*Added menu background image so that it's not just a white screen&#10;*Added an automatic scrolling funtion that allows the player to move to the level off their screen by checking position and creating an offset if they're in the first 20% or last 20% of the level." />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit Progress 14&#10;&#10;*Added menu background image so that it's not just a white screen&#10;*Added an automatic scrolling funtion that allows the player to move to the level off their screen by checking position and creating an offset if they're in the first 20% or last 20% of the level." />
+    <MESSAGE value="Edit Progress 16&#10;&#10;*Added crab enemies to the game and created the enemy manager to be able implement other enemies in the future.&#10;* Used green value of level mapper to indicate if an enemy should exist and where it should be placed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit Progress 16&#10;&#10;*Added crab enemies to the game and created the enemy manager to be able implement other enemies in the future.&#10;* Used green value of level mapper to indicate if an enemy should exist and where it should be placed." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

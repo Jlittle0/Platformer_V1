@@ -1,5 +1,4 @@
 package main;
-import entities.player;
 import gameStates.Gamestate;
 import gameStates.Playing;
 import gameStates.Menu;

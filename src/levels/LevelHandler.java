@@ -43,3 +43,7 @@ public class LevelHandler {
         return levelOne;
     }
 }
+
+// Idea to create a tutorial area or a place that isn't actually part of a level is to create a new level but never actually
+// Draw the images that are meant to represent the floor so that their hitboxes are still there and so that the character
+// Can't fall through the ground or anything but so that the background remains solid

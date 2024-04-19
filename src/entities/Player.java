@@ -128,6 +128,7 @@ public class Player extends Entity {
 
     private void drawUI(Graphics g) {
         // Draws the user interface (currently just the status bar)
+        // X
         g.drawImage(statusBarImg, statusBarX, statusBarY, statusBarWidth, statusBarHeight, null);
         g.setColor(Color.RED);
         g.fillRect(healthBarXStart + statusBarX, healthBarYStart + statusBarY, healthWidth, healthBarHeight);

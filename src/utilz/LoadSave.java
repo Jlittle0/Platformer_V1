@@ -26,6 +26,8 @@ public class LoadSave {
     public static final String PLAYING_BACKGROUND_IMG = "playing_bg_img.png";
     public static final String CRABBY_SPRITE = "crabby_sprite.png";
     public static final String STATUS_BAR = "health_power_bar.png";
+    public static final String MENU_BACKGROUND = "menu_background.png";
+    public static final String STUMP_ATLAS = "tree_atlas.PNG";
 
     public static BufferedImage GetSpriteAtlas(String fileName) {
         // Method idea taken from stackOverflow (forgot the username but I'll find it and put

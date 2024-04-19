@@ -39,7 +39,7 @@ public class GameOverOverlay {
     }
 
     private void loadAnimations() {
-        // Loads all the player animations from the atlas into a 2D array of images
+        // Loads all the tree animations from the atlas into an array of images
         BufferedImage img = LoadSave.GetSpriteAtlas(LoadSave.STUMP_ATLAS);
         animation = new BufferedImage[7];
         for (int i = 0; i < animation.length; i++)

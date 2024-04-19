@@ -41,11 +41,21 @@ public class Player extends Entity {
     private int healthBarHeight = (int)(4 * Game.SCALE);
     private int healthBarXStart = (int)(34 * Game.SCALE);
     private int healthBarYStart = (int)(14 * Game.SCALE);
+    // Changing Yellow Bar
+    private int energyBarWidth = (int)(103 * Game.SCALE);
+    private int energyBarHeight = (int)(3 * Game.SCALE);
+    private int energyBarXStart = (int)(45.5 * Game.SCALE);
+    private int energyBarYStart = (int)(34 * Game.SCALE);
 
     // Health stats
     private int maxHealth = 100;
     private int currentHealth = maxHealth;
     private int healthWidth = healthBarWidth;
+
+    // Stamina stats
+    private int maxStamina = 100;
+    private int currentStamina = maxStamina;
+    private int staminaWidth = energyBarWidth;
 
     // Charge Bar (coming soon)
 
@@ -74,7 +84,8 @@ public class Player extends Entity {
 
     public void update() {
         // Updates everything and each is explained in their own section
-        updateHealthBar();
+        updateStatusBar();
+        updateStatusBar();
 
         if (currentHealth <= 0) {
             playing.setGameOver(true);
@@ -109,8 +120,9 @@ public class Player extends Entity {
 
     }
 
-    private void updateHealthBar() {
+    private void updateStatusBar() {
         healthWidth = (int)((currentHealth / (float)maxHealth) * healthBarWidth);
+        staminaWidth = (int)(currentStamina / (float)maxStamina * staminaWidth);
     }
 
     public void render(Graphics g, int lvlOffset) {
@@ -132,6 +144,8 @@ public class Player extends Entity {
         g.drawImage(statusBarImg, statusBarX, statusBarY, statusBarWidth, statusBarHeight, null);
         g.setColor(Color.RED);
         g.fillRect(healthBarXStart + statusBarX, healthBarYStart + statusBarY, healthWidth, healthBarHeight);
+        g.setColor(Color.YELLOW);
+        g.fillRect(energyBarXStart + statusBarX, energyBarYStart + statusBarY, staminaWidth, energyBarHeight);
     }
 
     private void updateAnimationTick() {
@@ -261,6 +275,14 @@ public class Player extends Entity {
             //gameOver();
         } else if (currentHealth >= maxHealth)
             currentHealth = maxHealth;
+    }
+
+    public void changeStamina(int value) {
+        currentStamina += value;
+        if (currentStamina <= 0)
+            currentStamina = 0;
+        if (currentStamina >= maxStamina)
+            currentStamina = maxStamina;
     }
 
     private void loadAnimations() {

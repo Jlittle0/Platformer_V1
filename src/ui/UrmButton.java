@@ -5,7 +5,7 @@ import utilz.LoadSave;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-import static utilz.constants.UI.UrmButtons.*;
+import static utilz.Constants.UI.UrmButtons.*;
 
 public class UrmButton extends PauseButton {
     // Unpause, Replay, and Menu buttons

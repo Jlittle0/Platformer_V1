@@ -8,13 +8,13 @@ import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-import static utilz.constants.EnemyConstants.*;
+import static utilz.Constants.EnemyConstants.*;
 
 public class EnemyManager {
 
     private Playing playing;
-    private BufferedImage[][] crabbyArr;
-    private ArrayList<Crabby> crabbies = new ArrayList<Crabby>();
+    private BufferedImage[][] crabArr;
+    private ArrayList<Crab> crabs = new ArrayList<Crab>();
 
     public EnemyManager(Playing playing) {
         this.playing = playing;
@@ -23,12 +23,13 @@ public class EnemyManager {
     }
 
     private void addEnemies() {
-        crabbies = LoadSave.GetCrabs();
-        System.out.println("size of crabs: " + crabbies.size());
+        crabs = LoadSave.GetCrabs();
     }
 
     public void update(int[][] lvlData, Player player) {
-        for (Crabby c : crabbies)
+        // Updates each crab based on the lvlData and player information to determine their
+        // movement
+        for (Crab c : crabs)
             if (c.isActive())
                 c.update(lvlData, player);
     }
@@ -38,15 +39,15 @@ public class EnemyManager {
     }
 
     private void drawCrabs(Graphics g, int xLvlOffset) {
-        for (Crabby c : crabbies)
+        for (Crab c : crabs)
             if (c.isActive()) {
-            g.drawImage(crabbyArr[c.getEnemyState()][c.getAniIndex()], (int) c.getHitbox().x - CRABBY_DRAWOFFSET_X - xLvlOffset + c.flipX(), (int) c.getHitbox().y - CRABBY_DRAWOFFSET_Y, CRABBY_WIDTH * c.flipW(), CRABBY_HEIGHT, null);
+            g.drawImage(crabArr[c.getEnemyState()][c.getAniIndex()], (int) c.getHitbox().x - CRABBY_DRAWOFFSET_X - xLvlOffset + c.flipX(), (int) c.getHitbox().y - CRABBY_DRAWOFFSET_Y, CRAB_WIDTH * c.flipW(), CRAB_HEIGHT, null);
 //            c.drawAttackBox(g, xLvlOffset);
         }
     }
 
     public void checkEnemyHit(Rectangle2D.Float attackBox) {
-        for (Crabby c: crabbies)
+        for (Crab c: crabs)
             if (c.isActive())
                 if (attackBox.intersects(c.getHitbox())) {
                     c.hurt(10);
@@ -55,16 +56,24 @@ public class EnemyManager {
     }
 
     private void loadEnemyImgs() {
-        // 5 States, at most 9 indexes
-        crabbyArr = new BufferedImage[5][9];
+        // 5 different states with at most 9 indexes
+        crabArr = new BufferedImage[5][9];
         BufferedImage temp = LoadSave.GetSpriteAtlas(LoadSave.CRABBY_SPRITE);
-        for (int j = 0; j < crabbyArr.length; j++)
-            for (int i = 0; i < crabbyArr[j].length; i++)
-                crabbyArr[j][i] = temp.getSubimage(i * CRABBY_DEFAULT_WIDTH, j * CRABBY_DEFAULT_HEIGHT, CRABBY_DEFAULT_WIDTH, CRABBY_DEFAULT_HEIGHT);
+        for (int j = 0; j < crabArr.length; j++)
+            for (int i = 0; i < crabArr[j].length; i++)
+                crabArr[j][i] = temp.getSubimage(i * CRAB_DEFAULT_WIDTH, j * CRAB_DEFAULT_HEIGHT, CRAB_DEFAULT_WIDTH, CRAB_DEFAULT_HEIGHT);
     }
 
     public void resetAllEnemies() {
-        for (Crabby c : crabbies)
+        // Create a method for each enemy type
+        resetCrabs();
+    }
+
+    public void resetCrabs() {
+        for (Crab c : crabs)
             c.resetEnemy();
     }
 }
+
+// Add a boss that's a goblin with a large sword that pops out of the tree after the user enters the boss area and then there's a pause on the screen
+// with a ... until eventually there's a text bubble that is a growling and an animation players where the goblin king pops out of the massive tree stump

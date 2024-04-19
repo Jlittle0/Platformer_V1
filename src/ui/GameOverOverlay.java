@@ -15,6 +15,8 @@ public class GameOverOverlay {
     }
 
     public void draw(Graphics g) {
+        // Not much here so just make the screen darker.
+        // TODO: Complete this later once Game Over image is complete
         g.setColor(new Color(0, 0, 0, 200));
         g.fillRect(0, 0, Game.GAME_WIDTH, Game.GAME_HEIGHT);
 

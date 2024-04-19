@@ -14,10 +14,12 @@ public class LevelHandler {
     public LevelHandler(Game game) {
         this.game = game;
         importOutsideSprites();
+        // Stores the data for each level
         levelOne = new Level(LoadSave.GetLevelData());
     }
 
     private void importOutsideSprites() {
+        // Imports the tile assets for each level, currently only one image
         BufferedImage img = LoadSave.GetSpriteAtlas(LoadSave.LEVEL_ATLAS);
         levelSprite = new BufferedImage[48];
         for (int j = 0; j < 4; j++)
@@ -28,6 +30,7 @@ public class LevelHandler {
     }
 
     public void draw(Graphics g, int lvloffset) {
+        // offSet to create the illusion of movement and scrolling based on player location
         for (int j = 0; j < Game.TILES_IN_HEIGHT; j++)
             for (int i = 0; i < levelOne.getLevelData()[0].length; i++) {
                 int index = levelOne.getSpriteIndex(i, j);

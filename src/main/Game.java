@@ -7,8 +7,8 @@ import java.awt.*;
 
 public class Game implements Runnable{
     // Private instance variables
-    private gameViewer gameWindow;
-    private gamePanel gamePanel;
+    private GameViewer gameWindow;
+    private GamePanel gamePanel;
     private Thread gameThread;
     private final int FPS_SET = 120;
     private final int UPS_SET = 200;
@@ -17,20 +17,25 @@ public class Game implements Runnable{
     private Menu menu;
 
 
+    // Size of each "tile" used in the level maps
     public final static int TILES_DEFAULT_SIZE = 32;
+    // Found that changing the size of every single asset in my GUI game was one of the most
+    // annoying things ever so just made a scale variable to make sure everything is the
+    // same size proportionally and so that it's easy to make things bigger or smaller if wanted
     public final static float SCALE = 1.75f;
-    // Visible tiles for game screen
+    // Visible number of tiles for game screen
     public final static int TILES_IN_WIDTH  = 26;
     public final static int TILES_IN_HEIGHT  = 14;
-    //
+
     public final static int TILES_SIZE = (int)(TILES_DEFAULT_SIZE * SCALE);
+    // Determines the size of the window by using the # of desired tiles
     public final static int GAME_WIDTH = TILES_SIZE * TILES_IN_WIDTH;
     public final static int GAME_HEIGHT = TILES_SIZE * TILES_IN_HEIGHT;
 
     public Game() {
         initClasses();
-        gamePanel = new gamePanel(this);
-        gameWindow = new gameViewer(gamePanel);
+        gamePanel = new GamePanel(this);
+        gameWindow = new GameViewer(gamePanel);
         gamePanel.setFocusable(true);
         gamePanel.requestFocus();
         startGameLoop();
@@ -42,11 +47,14 @@ public class Game implements Runnable{
     }
 
     private void startGameLoop() {
+        // Idea to run the game on a thread from StackOverview not sure if I'll need this but
+        // better to have something and not need it than to need it and not be able to implement
         gameThread = new Thread(this);
         gameThread.start();
     }
 
     public void update() {
+        // Updates the window based on the current state of the game and calls its own update
         switch (Gamestate.state) {
             case PLAYING:
                 playing.update();
@@ -55,6 +63,7 @@ public class Game implements Runnable{
                 menu.update();
                 break;
             case OPTIONS:
+                // No options state yet so just defaults to closing window
             case QUIT:
             default:
                 System.exit(0);
@@ -63,6 +72,8 @@ public class Game implements Runnable{
     }
 
     public void render(Graphics g) {
+        // Same thing as update except redrawing instead of just updating all the positions
+        // and other variables that need to be checked
         switch (Gamestate.state) {
             case PLAYING:
                 playing.draw(g);
@@ -77,6 +88,14 @@ public class Game implements Runnable{
 
     @Override
     public void run() {
+        // Forgot how to double buffer and felt that this was how every game I know of does stuff
+        // so I made a basic FPS and UPS loop, knew the basic set up simply because I play games
+        // but used a tip from a user on a programming discord in terms of the idea for
+        // using current time and then subtracting that from the previous check so that if
+        // time is ever lost between an update because of lag or something, don't reset the difference
+        // but instead just subtract one so that the next update is faster and it's recovered.
+
+        // Find the time between each update and frame by using set FPS and UPS above
         double timePerFrame = 1000000000.0 / FPS_SET;
         double timePerUpdate =  1000000000.0 / UPS_SET;
 
@@ -92,25 +111,28 @@ public class Game implements Runnable{
         while(true) {
             long currentTime = System.nanoTime();
 
+            // Sets the change in # of updates and frames between previous check
             deltaU += (currentTime - previousTime) / timePerUpdate;
             deltaF += (currentTime - previousTime) / timePerFrame;
             previousTime = currentTime;
 
+            // If the time between updates is greater than one update length, decrease by one and update
             if (deltaU >= 1) {
                 update();
                 updates++;
                 deltaU--;
             }
 
+            // If the time between frames is greater than one time between each frame, repaint.
             if (deltaF >= 1) {
                 gamePanel.repaint();
                 frames++;
                 deltaF--;
             }
 
+            // If more than a second has passed, reset frame and update count for next sec.
             if (System.currentTimeMillis() - lastCheck >= 1000) {
                 lastCheck = System.currentTimeMillis();
-                System.out.println("FPS: " + frames + "  | UPS: " + updates);
                 frames = 0;
                 updates = 0;
             }

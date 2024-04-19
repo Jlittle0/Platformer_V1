@@ -4,7 +4,7 @@ import utilz.LoadSave;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import static utilz.constants.UI.PauseButtons.*;
+import static utilz.Constants.UI.PauseButtons.*;
 
 public class SoundButton extends PauseButton {
 
@@ -23,7 +23,7 @@ public class SoundButton extends PauseButton {
         soundImgs = new BufferedImage[2][3];
         for (int j = 0; j < soundImgs.length; j++)
             for (int i = 0; i < soundImgs[j].length; i++)
-                soundImgs[j][i] = temp.getSubimage(i * SOUND_SIZE_DEFAULT, j * SOUND_SIZE_DEFAULT, SOUND_SIZE_DEFAULT, SOUND_SIZE_DEFAULT);
+                soundImgs[j][i] = temp.getSubimage(i * SB_DEFAULT_SIZE, j * SB_DEFAULT_SIZE, SB_DEFAULT_SIZE, SB_DEFAULT_SIZE);
     }
 
     public void update() {

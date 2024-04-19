@@ -5,7 +5,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
 public interface Statemethods {
-    // A collection of methods that each class creates if they implement the interface
+    // A collection of methods that each class needs if they implement the interface
     public void update();
     public void draw(Graphics g);
     public void mouseClicked(MouseEvent e);

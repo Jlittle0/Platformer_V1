@@ -4,7 +4,6 @@ import entities.EnemyManager;
 import entities.Player;
 import levels.LevelHandler;
 import main.Game;
-import org.w3c.dom.css.Rect;
 import ui.GameOverOverlay;
 import ui.PauseOverlay;
 import utilz.LoadSave;
@@ -14,9 +13,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
-import java.util.Random;
-
-import static utilz.constants.Environment.*;
 
 public class Playing extends State implements Statemethods {
     private Player player;
@@ -26,32 +22,28 @@ public class Playing extends State implements Statemethods {
     private GameOverOverlay gameOverOverlay;
     private boolean paused = false;
 
+    // Borders to create the illusion of movement if the player is too far right or left of the screen
     private int xLvlOffset;
     private int leftBorder = (int)(0.2 * Game.GAME_WIDTH);
     private int rightBorder = (int)(0.8 * Game.GAME_WIDTH);
+
+    // Getting information about the level to find the edge since each might be different lengths
     private int lvlTilesWide = LoadSave.GetLevelData()[0].length;
     private int maxTilesOffset = lvlTilesWide - Game.TILES_IN_WIDTH;
     private int maxLvlOffsetX = maxTilesOffset * Game.TILES_SIZE;
-    private BufferedImage backgroundImg, bigCloud, smallCloud;
-    private int[] smallCloudsPos;
-    private Random rnd = new Random();
+    private BufferedImage backgroundImg;
 
     private boolean gameOver = false;
 
     public Playing(Game game) {
         super(game);
         initClasses();
-
+        // Initialize and create background
         backgroundImg = LoadSave.GetSpriteAtlas(LoadSave.PLAYING_BACKGROUND_IMG);
-        bigCloud = LoadSave.GetSpriteAtlas(LoadSave.BIG_CLOUDS);
-        smallCloud = LoadSave.GetSpriteAtlas(LoadSave.SMALL_CLOUDS);
-        smallCloudsPos = new int[(int)(LoadSave.GetLevelData()[0].length * Game.TILES_SIZE / SMALL_CLOUD_WIDTH) / 4];
-        for (int i = 0; i < smallCloudsPos.length; i++) {
-            smallCloudsPos[i] = (int)(90 * Game.SCALE) + rnd.nextInt((int)(100 * Game.SCALE));
-        }
     }
 
     private void initClasses() {
+        // Initializes all the classes etc. so that the constructor isn't so cluttered
         levelHandler = new LevelHandler(game);
         enemyManager = new EnemyManager(this);
         player = new Player(200, 200, (int)(64 * Game.SCALE), (int)(40 * Game.SCALE), this);
@@ -62,6 +54,8 @@ public class Playing extends State implements Statemethods {
 
     @Override
     public void update() {
+        // Check whether or not the game should actually be updated and then update each
+        // individual part of the gamePlay including the level, player, and enemies.
         if (!paused && !gameOver) {
             levelHandler.update();
             player.update();
@@ -73,6 +67,8 @@ public class Playing extends State implements Statemethods {
     }
 
     private void checkCloseToBorder() {
+        // Creates the illusion of the level moving based on the player being too close to either
+        // edge of the screen
         int playerX = (int)(player.getHitbox().x);
         int diff = playerX - xLvlOffset;
 
@@ -82,6 +78,7 @@ public class Playing extends State implements Statemethods {
         else if (diff < leftBorder)
             xLvlOffset += diff - leftBorder;
 
+        // Restrict offset to the edges of the level so that a blank screen isn't shown
         if (xLvlOffset > maxLvlOffsetX)
             xLvlOffset = maxLvlOffsetX;
         else if (xLvlOffset < 0)
@@ -90,14 +87,15 @@ public class Playing extends State implements Statemethods {
 
     @Override
     public void draw(Graphics g) {
+        // Draws the background
         g.drawImage(backgroundImg, 0, 0, Game.GAME_WIDTH, Game.GAME_HEIGHT, null);
 
-        drawClouds(g);
-
+        // Draws each individual part of the game in the order of level tiles, player, then enemies
         levelHandler.draw(g, xLvlOffset);
         player.render(g, xLvlOffset);
         enemyManager.draw(g, xLvlOffset);
 
+        // Draw the paused or gameOver overlays depending on whether or not the game is paused and over
         if (paused) {
             g.setColor(new Color(0, 0, 0, 175));
             g.fillRect(0, 0, game.GAME_WIDTH, game.GAME_HEIGHT);
@@ -108,19 +106,8 @@ public class Playing extends State implements Statemethods {
         }
     }
 
-    private void drawClouds(Graphics g) {
-        // 3 loops
-        for (int i = 0; i < (int)(LoadSave.GetLevelData()[0].length * Game.TILES_SIZE / BIG_CLOUD_WIDTH); i++) {
-            g.drawImage(bigCloud, i * BIG_CLOUD_WIDTH - (int)(xLvlOffset * 0.3), (int)(204 * Game.SCALE), BIG_CLOUD_WIDTH, BIG_CLOUD_HEIGHT, null);
-        }
-        //
-        for (int i = 0; i < smallCloudsPos.length; i++) {
-            g.drawImage(smallCloud, 4 * i * SMALL_CLOUD_WIDTH - (int)(xLvlOffset * 0.7), smallCloudsPos[i], SMALL_CLOUD_WIDTH, SMALL_CLOUD_HEIGHT, null);
-        }
-    }
-
     public void resetAll() {
-        //TODO: Reset all, playing, enemy, lvl etc.
+        // resets everything
         gameOver = false;
         paused = false;
         player.resetAll();
@@ -132,11 +119,14 @@ public class Playing extends State implements Statemethods {
     }
 
     public void checkEnemyHit(Rectangle2D.Float attackBox) {
+        // Checks whether or not an enemy was hit by seeing if there's an overlap between the
+        // attackBox of the player and the hitbox of one of the enemies
         enemyManager.checkEnemyHit(attackBox);
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        // Attacking action if left mouse is clicked, might change to pressed
         if (!gameOver)
             if (e.getButton() == MouseEvent.BUTTON1) {
                 player.setAttacking(true);
@@ -145,12 +135,14 @@ public class Playing extends State implements Statemethods {
 
     @Override
     public void mousePressed(MouseEvent e) {
+        // MousePressed currently has no role other than in the pause screen
         if (!gameOver)
             if (paused)
                 pauseOverlay.mousePressed(e);
     }
 
     public void mouseDragged(MouseEvent e) {
+        // Same this as mousePressed
         if (!gameOver)
             if (paused)
                 pauseOverlay.mouseDragged(e);
@@ -158,6 +150,7 @@ public class Playing extends State implements Statemethods {
 
     @Override
     public void mouseReleased(MouseEvent e) {
+        // Same thing again
         if (!gameOver)
             if (paused)
                 pauseOverlay.mouseReleased(e);
@@ -165,6 +158,7 @@ public class Playing extends State implements Statemethods {
 
     @Override
     public void mouseMoved(MouseEvent e) {
+        // Same thing again again
         if (!gameOver)
             if (paused)
                 pauseOverlay.mouseMoved(e);
@@ -172,6 +166,8 @@ public class Playing extends State implements Statemethods {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        // If the game is over, have different keybinds but generally a and d for left and right
+        // movement of the player then space to jump and esc to pause the game. Standard.
         if (gameOver)
             gameOverOverlay.keyPressed(e);
         else

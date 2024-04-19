@@ -1,16 +1,15 @@
 package inputs;
 import gameStates.Gamestate;
-import main.gamePanel;
+import main.GamePanel;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import static utilz.constants.Directions.*;
 
-public class keyboardInputs implements KeyListener {
+public class KeyboardInputs implements KeyListener {
 
-    private gamePanel gamePanel;
+    private GamePanel gamePanel;
 
-    public keyboardInputs(gamePanel gamePanel) {
+    public KeyboardInputs(GamePanel gamePanel) {
         this.gamePanel = gamePanel;
     }
 

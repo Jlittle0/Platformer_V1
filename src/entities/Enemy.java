@@ -4,9 +4,9 @@ import main.Game;
 
 import java.awt.geom.Rectangle2D;
 
-import static utilz.HelpMethods.*;
-import static utilz.constants.EnemyConstants.*;
-import static utilz.constants.Directions.*;
+import static utilz.HelperMethods.*;
+import static utilz.Constants.EnemyConstants.*;
+import static utilz.Constants.Directions.*;
 
 public abstract class Enemy extends Entity {
     protected int aniIndex, enemyState, enemyType;

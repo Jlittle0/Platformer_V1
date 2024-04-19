@@ -2,31 +2,38 @@ package utilz;
 
 import main.Game;
 
-public class constants {
+// Most likely going to move all of these to their related classes/package but felt that it was
+// faster and simplier to just leave them here for now
+
+public class Constants {
 
     public static class EnemyConstants {
-        public static final int CRABBY = 0;
+        // Constants for enemy type
+        public static final int CRAB = 0;
 
+        // Crab-specific state constants
         public static final int IDLE = 0;
         public static final int RUNNING = 1;
         public static final int ATTACK = 2;
         public static final int HIT = 3;
         public static final int DEAD = 4;
 
-        public static final int CRABBY_DEFAULT_WIDTH = 72;
-        public static final int CRABBY_DEFAULT_HEIGHT = 32;
-        public static final int CRABBY_WIDTH = (int)(CRABBY_DEFAULT_WIDTH * Game.SCALE);
-        public static final int CRABBY_HEIGHT = (int)(CRABBY_DEFAULT_HEIGHT * Game.SCALE);
+        // Basic dimensions for crab enemy
+        public static final int CRAB_DEFAULT_WIDTH = 72;
+        public static final int CRAB_DEFAULT_HEIGHT = 32;
+        public static final int CRAB_WIDTH = (int)(CRAB_DEFAULT_WIDTH * Game.SCALE);
+        public static final int CRAB_HEIGHT = (int)(CRAB_DEFAULT_HEIGHT * Game.SCALE);
 
         // Difference between the start of the sprite (whole rectangle including empty space to the crab)
         // and the hitbox in both the x and y direction
         public static final int CRABBY_DRAWOFFSET_X = (int)(26 * Game.SCALE);
         public static final int CRABBY_DRAWOFFSET_Y = (int)(9 * Game.SCALE);
 
-        public static int GetSpriteAmount(int enemy_type, int enemy_state) {
-            switch (enemy_type) {
-                case CRABBY:
-                    switch (enemy_state) {
+        // Gets the number of different stages for each animation
+        public static int GetSpriteAmount(int enemyType, int enemyState) {
+            switch (enemyType) {
+                case CRAB:
+                    switch (enemyState) {
                         case IDLE:
                             return 9;
                         case RUNNING:
@@ -42,18 +49,20 @@ public class constants {
             return 0;
         }
 
-        public static int GetMaxHealth(int enemy_type) {
-            switch(enemy_type) {
-                case CRABBY:
+        // Returns the max health of an enemy
+        public static int GetMaxHealth(int enemyType) {
+            switch(enemyType) {
+                case CRAB:
                     return 10;
                 default:
                     return 1;
             }
         }
 
-        public static int GetEnemyDamage(int enemy_type) {
-            switch(enemy_type) {
-                case CRABBY:
+        // Returns the amount of damage an enemy does
+        public static int GetEnemyDamage(int enemyType) {
+            switch(enemyType) {
+                case CRAB:
                     return 15;
                 default:
                     return 0;
@@ -62,39 +71,34 @@ public class constants {
     }
 
     public static class Environment {
-        public static final int BIG_CLOUD_DEFAULT_WIDTH = 448;
-        public static final int BIG_CLOUD_DEFAULT_HEIGHT= 101;
-        public static final int SMALL_CLOUD_DEFAULT_WIDTH = 72;
-        public static final int SMALL_CLOUD_DEFAULT_HEIGHT= 24;
-
-        public static final int BIG_CLOUD_WIDTH  = (int)(BIG_CLOUD_DEFAULT_WIDTH * Game.SCALE);
-        public static final int BIG_CLOUD_HEIGHT = (int)(BIG_CLOUD_DEFAULT_HEIGHT * Game.SCALE);
-        public static final int SMALL_CLOUD_WIDTH  = (int)(SMALL_CLOUD_DEFAULT_WIDTH * Game.SCALE);
-        public static final int SMALL_CLOUD_HEIGHT = (int)(SMALL_CLOUD_DEFAULT_HEIGHT * Game.SCALE);
+        // Empty for now
     }
 
     public static class UI {
         public static class Buttons {
-            public static final int B_WIDTH_DEFAULT= 140;
-            public static final int B_HEIGHT_DEFAULT= 56;
-            public static final int B_WIDTH = (int)(B_WIDTH_DEFAULT * Game.SCALE);
-            public static final int B_HEIGHT = (int)(B_HEIGHT_DEFAULT * Game.SCALE);
+            // Specifications for current buttons on menu
+            public static final int MB_DEFAULT_WIDTH = 140;
+            public static final int MB_DEFAULT_HEIGHT = 56;
+            public static final int MB_WIDTH = (int)(MB_DEFAULT_WIDTH * Game.SCALE);
+            public static final int MB_HEIGHT = (int)(MB_DEFAULT_HEIGHT * Game.SCALE);
         }
         public static class PauseButtons {
-            // Width and height are both 42 pixels
-            public static final int SOUND_SIZE_DEFAULT = 42;
-            public static final int SOUND_SIZE = (int)(SOUND_SIZE_DEFAULT * Game.SCALE);
+            // Specifications for each sound button (42 pixels both width and height)
+            public static final int SB_DEFAULT_SIZE = 42;
+            public static final int SB_SIZE = (int)(SB_DEFAULT_SIZE * Game.SCALE);
         }
 
         public static class UrmButtons {
+            // Specifications for the unpause, redo, and menu buttons (56 pixels both w and h)
             public static final int URM_DEFAULT_SIZE = 56;
             public static final int URM_SIZE = (int)(URM_DEFAULT_SIZE * Game.SCALE);
         }
 
         public static class VolumeButtons {
+            // Dimensions for the volume button ontop of slider
             public static final int VOLUME_DEFAULT_WIDTH = 28;
             public static final int VOLUME_DEFAULT_HEIGHT = 44;
-            // Height is the same for the slider as it is for the button
+            // Height is the same for the slider as it is for the button so not specified again
             public static final int SLIDER_DEFAULT_WIDTH = 215;
 
             public static final int VOLUME_WIDTH = (int)(VOLUME_DEFAULT_WIDTH * Game.SCALE);
@@ -111,6 +115,7 @@ public class constants {
     }
 
     public static class PlayerConstants {
+        // Player States
         public static final int IDLE = 0;
         public static final int RUNNING = 1;
         public static final int JUMP = 2;
@@ -119,8 +124,9 @@ public class constants {
         public static final int HIT = 5;
         public static final int DEAD = 6;
 
-        public static int GetSpriteAmount(int player_action) {
-            switch (player_action) {
+        public static int GetSpriteAmount(int playerAction) {
+            // Returns the number of parts for each action's animation)
+            switch (playerAction) {
                 case DEAD:
                     return 8;
                 case RUNNING:

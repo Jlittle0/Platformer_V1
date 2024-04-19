@@ -1,29 +1,23 @@
 package main;
-import inputs.keyboardInputs;
-import inputs.mouseInputs;
+import inputs.KeyboardInputs;
+import inputs.MouseInputs;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.InputStream;
 
 import static main.Game.GAME_HEIGHT;
 import static main.Game.GAME_WIDTH;
-import static utilz.constants.PlayerConstants.*;
-import static utilz.constants.Directions.*;
 
-public class gamePanel extends JPanel {
-    private mouseInputs mouseInputs;
+public class GamePanel extends JPanel {
+    private MouseInputs mouseInputs;
     private Game game;
 
-    public gamePanel(Game game) {
-        mouseInputs = new mouseInputs(this);
+    public GamePanel(Game game) {
+        mouseInputs = new MouseInputs(this);
         this.game = game;
         setPanelSize();
-        addKeyListener(new keyboardInputs(this));
+        addKeyListener(new KeyboardInputs(this));
         addMouseListener(mouseInputs);
         addMouseMotionListener(mouseInputs);
     }

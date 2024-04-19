@@ -4,15 +4,13 @@ import gameStates.Gamestate;
 import gameStates.Playing;
 import main.Game;
 import utilz.LoadSave;
-import utilz.constants;
 
 import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import static utilz.constants.UI.PauseButtons.*;
-import static utilz.constants.UI.UrmButtons.*;
-import static utilz.constants.UI.VolumeButtons.*;
+import static utilz.Constants.UI.PauseButtons.*;
+import static utilz.Constants.UI.UrmButtons.*;
+import static utilz.Constants.UI.VolumeButtons.*;
 
 public class PauseOverlay {
 
@@ -22,8 +20,6 @@ public class PauseOverlay {
     private SoundButton musicButton, sfxButton;
     private UrmButton menuButton, replayButton, unpauseButton;
     private VolumeButton volumeButton;
-
-
 
     public PauseOverlay(Playing playing) {
         this.playing = playing;
@@ -53,8 +49,8 @@ public class PauseOverlay {
         int soundX = (int)(450 * Game.SCALE);
         int musicY = (int)(140 * Game.SCALE);
         int sfxY = (int)(186 * Game.SCALE);
-        musicButton = new SoundButton(soundX, musicY, SOUND_SIZE, SOUND_SIZE);
-        sfxButton = new SoundButton(soundX, sfxY, SOUND_SIZE, SOUND_SIZE);
+        musicButton = new SoundButton(soundX, musicY, SB_SIZE, SB_SIZE);
+        sfxButton = new SoundButton(soundX, sfxY, SB_SIZE, SB_SIZE);
     }
 
     private void loadBackground() {
@@ -98,6 +94,9 @@ public class PauseOverlay {
     }
 
     public void mousePressed(MouseEvent e) {
+        // Checks whether or not the mouse press event is within the bounds of any of the
+        // buttons in the paused menu and if it is to set its specific MousePressed variable
+        // to true
         if (isIn(e, musicButton))
             musicButton.setMousePressed(true);
         else if (isIn(e, sfxButton))
@@ -128,11 +127,13 @@ public class PauseOverlay {
             }
         } else if (isIn(e, replayButton)) {
             if (replayButton.isMousePressed())
+                // Not currently implemented so just prints string for now
                 System.out.println("Replay level");
         } else if (isIn(e, unpauseButton)) {
             if (unpauseButton.isMousePressed())
                 playing.unpauseGame();
         }
+        // Reset all the boolean conditions for buttons
         musicButton.resetBools();
         sfxButton.resetBools();
         menuButton.resetBools();
@@ -142,6 +143,7 @@ public class PauseOverlay {
     }
 
     public void mouseMoved(MouseEvent e) {
+        // Make sure all the mouseOver variables are reset
         musicButton.setMouseOver(false);
         sfxButton.setMouseOver(false);
         menuButton.setMouseOver(false);
@@ -149,6 +151,8 @@ public class PauseOverlay {
         unpauseButton.setMouseOver(false);
         volumeButton.setMouseOver(false);
 
+        // Checks whether the mouse is hovering over any of the buttons and if so set their
+        // mouse over to true to allow them to change their index for the image.
         if (isIn(e, musicButton))
             musicButton.setMouseOver(true);
         else if (isIn(e, sfxButton))
@@ -165,7 +169,8 @@ public class PauseOverlay {
 
 
     private boolean isIn(MouseEvent e, PauseButton b) {
-        // Using pausebutton since it's the superclass of all paused buttons including music
+        // Using pausebutton since it's the superclass of all paused buttons including music but
+        // this checks whether or not the mouseEvent is occuring within the bounds of a button
         return b.getBounds().contains(e.getX(), e.getY());
     }
 

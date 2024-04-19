@@ -4,11 +4,8 @@ import utilz.LoadSave;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import utilz.LoadSave;
-import static utilz.constants.UI.VolumeButtons.*;
 
-
-
+import static utilz.Constants.UI.VolumeButtons.*;
 
 public class VolumeButton extends PauseButton {
     private BufferedImage[] imgs;
@@ -16,11 +13,14 @@ public class VolumeButton extends PauseButton {
     private int index = 0;
     private boolean mouseOver, mousePressed;
     private int buttonX, minX, maxX;
+    // Whole point of this offset is so that the center of the button is drawn where the
+    // mouse cursor is and follows it rather than the edge of the button
     private static final int BUTTON_CENTER_OFFSET = VOLUME_WIDTH / 2;
 
     public VolumeButton(int x, int y, int width, int height) {
         // Center button onto slider
         super(x + width / 2, y, VOLUME_WIDTH, height);
+        // Bounds used to determine whether or not mouse is over/pressing the button
         bounds.x -= BUTTON_CENTER_OFFSET;
         buttonX = x + width / 2;
         this.x = x;
@@ -31,6 +31,7 @@ public class VolumeButton extends PauseButton {
     }
 
     private void loadImgs() {
+        // Puts all the stages of the volume button into the imgs array
         BufferedImage temp = LoadSave.GetSpriteAtlas(LoadSave.VOLUME_BUTTONS);
         imgs = new BufferedImage[3];
         for (int i = 0; i < imgs.length; i++)
@@ -39,6 +40,8 @@ public class VolumeButton extends PauseButton {
     }
 
     public void update() {
+        // Check whether or not the mouse is hovering over button or is pressed to change
+        // image by changing the index used to determine which img in imgs to show.
         index = 0;
         if (mouseOver)
             index = 1;
@@ -54,6 +57,7 @@ public class VolumeButton extends PauseButton {
     }
 
     public void changeX(int x) {
+        // Changes the location of the button (x-value)
         if (x < minX)
             buttonX = minX;
         else if (x > maxX)

@@ -5,19 +5,17 @@ import main.Game;
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
-import static utilz.HelpMethods.*;
-import static utilz.constants.Directions.LEFT;
-import static utilz.constants.EnemyConstants.*;
-import static utilz.constants.Directions.*;
+import static utilz.Constants.EnemyConstants.*;
+import static utilz.Constants.Directions.*;
 
-public class Crabby extends Enemy {
+public class Crab extends Enemy {
 
     //AttackBox
     private Rectangle2D.Float attackBox;
     private int attackBoxOffsetX;
 
-    public Crabby(float x, float y) {
-        super(x, y, CRABBY_WIDTH, CRABBY_HEIGHT, CRABBY);
+    public Crab(float x, float y) {
+        super(x, y, CRAB_WIDTH, CRAB_HEIGHT, CRAB);
         initHitbox(x, y, (int)(22 * Game.SCALE), (int)(19 * Game.SCALE));
         initAttackBox();
     }

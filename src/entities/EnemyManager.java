@@ -23,6 +23,7 @@ public class EnemyManager {
     }
 
     private void addEnemies() {
+        // Gets the # of crabs and their locations from the level data and adds it to crabs
         crabs = LoadSave.GetCrabs();
     }
 

@@ -11,12 +11,11 @@ import static utilz.Constants.Directions.*;
 public class Crab extends Enemy {
 
     //AttackBox
-    private Rectangle2D.Float attackBox;
     private int attackBoxOffsetX;
 
     public Crab(float x, float y) {
         super(x, y, CRAB_WIDTH, CRAB_HEIGHT, CRAB);
-        initHitbox(x, y, (int)(22 * Game.SCALE), (int)(19 * Game.SCALE));
+        initHitbox(22, 19);
         initAttackBox();
     }
 
@@ -43,15 +42,16 @@ public class Crab extends Enemy {
             updateInAir(lvlData);
         } else {
             // Patrol
-            switch (enemyState) {
+            switch (state) {
                 case IDLE:
                     newState(RUNNING);
                     break;
                 case RUNNING:
-                    if (canSeePlayer(lvlData, player))
+                    if (canSeePlayer(lvlData, player)) {
                         turnTowardsPlayer(player);
-                    if (isPlayerInAttackRange(player))
-                        newState(ATTACK);
+                        if (isPlayerInAttackRange(player))
+                            newState(ATTACK);
+                    }
                     move(lvlData);
                     break;
                 case ATTACK:
@@ -64,11 +64,6 @@ public class Crab extends Enemy {
                     break;
             }
         }
-    }
-
-    public void drawAttackBox(Graphics g, int xLvlOffset) {
-        g.setColor(Color.RED);
-        g.drawRect((int)(attackBox.x - xLvlOffset), (int)attackBox.y, (int)attackBox.width, (int)attackBox.height);
     }
 
     public int flipX() {

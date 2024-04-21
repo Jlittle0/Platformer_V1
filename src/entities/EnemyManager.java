@@ -1,6 +1,7 @@
 package entities;
 
 import gameStates.Playing;
+import levels.Level;
 import utilz.LoadSave;
 
 import java.awt.*;
@@ -19,20 +20,25 @@ public class EnemyManager {
     public EnemyManager(Playing playing) {
         this.playing = playing;
         loadEnemyImgs();
-        addEnemies();
     }
 
-    private void addEnemies() {
+    public void loadEnemies(Level level) {
         // Gets the # of crabs and their locations from the level data and adds it to crabs
-        crabs = LoadSave.GetCrabs();
+        crabs = level.getCrabs();
     }
 
     public void update(int[][] lvlData, Player player) {
+        boolean isAnyActive = false;
+
         // Updates each crab based on the lvlData and player information to determine their
         // movement
         for (Crab c : crabs)
-            if (c.isActive())
+            if (c.isActive()) {
                 c.update(lvlData, player);
+                isAnyActive = true;
+            }
+        if (!isAnyActive)
+            playing.setLevelCompleted(true);
     }
 
     public void draw(Graphics g, int xLvlOffset) {

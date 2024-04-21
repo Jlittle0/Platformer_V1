@@ -1,7 +1,14 @@
 package utilz;
 
+import entities.Crab;
 import main.Game;
+
+import java.awt.*;
 import java.awt.geom.Rectangle2D;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+
+import static utilz.Constants.EnemyConstants.CRAB;
 
 public class HelperMethods {
 
@@ -82,7 +89,10 @@ public class HelperMethods {
     }
 
     public static boolean IsFloor(Rectangle2D.Float hitbox, float xSpeed, int[][] lvlData) {
-        return (IsSolid(hitbox.x + xSpeed, hitbox.y + hitbox.height + 1, lvlData));
+        if (xSpeed > 0)
+            return (IsSolid(hitbox.x + + hitbox.width + xSpeed, hitbox.y + hitbox.height + 1, lvlData));
+        else
+            return (IsSolid(hitbox.x + xSpeed, hitbox.y + hitbox.height + 1, lvlData));
     }
 
     public static boolean IsAllTilesWalkable(int xStart, int xEnd, int yTile, int[][] lvlData) {
@@ -109,6 +119,47 @@ public class HelperMethods {
             return IsAllTilesWalkable(secondXTile, firstXTile, yTile, lvlData);
         else
             return IsAllTilesWalkable(firstXTile, secondXTile, yTile, lvlData);
+    }
+
+    public static int[][] GetLevelData(BufferedImage img) {
+        int[][] lvlData = new int[img.getHeight()][img.getWidth()];
+
+        for (int j = 0; j < img.getHeight(); j++)
+            for (int i = 0; i < img.getWidth(); i++) {
+                Color color = new Color(img.getRGB(i, j));
+                int value = color.getRed();
+                if (value >= 48)
+                    value = 0;
+                lvlData[j][i] = value;
+            }
+        return lvlData;
+    }
+
+    public static ArrayList<Crab> GetCrabs(BufferedImage img) {
+        // Uses the green value of the level map data to determine where Crab enemies
+        // should be located. Currently only works for the first level.
+        ArrayList<Crab> list = new ArrayList<Crab>();
+
+        for (int j = 0; j < img.getHeight(); j++)
+            for (int i = 0; i < img.getWidth(); i++) {
+                Color color = new Color(img.getRGB(i, j));
+                int value = color.getGreen();
+                if (value == CRAB)
+                    list.add(new Crab(i * Game.TILES_SIZE, j * Game.TILES_SIZE));
+            }
+        return list;
+    }
+
+    public static Point GetPlayerSpawn(BufferedImage img) {
+        for (int j = 0; j < img.getHeight(); j++)
+            for (int i = 0; i < img.getWidth(); i++) {
+                Color color = new Color(img.getRGB(i, j));
+                int value = color.getGreen();
+                // Magic number currently for testing purposes
+                if (value == 100)
+                    return new Point(i * Game.TILES_SIZE, j * Game.TILES_SIZE);
+            }
+        return new Point(1 * Game.TILES_SIZE, 1 * Game.TILES_SIZE);
     }
 
 

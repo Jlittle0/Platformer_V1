@@ -1,21 +1,44 @@
 package levels;
 
+import gameStates.Gamestate;
 import main.Game;
 import utilz.LoadSave;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 public class LevelHandler {
     private Game game;
     private BufferedImage[] levelSprite;
-    private Level levelOne;
+    private ArrayList<Level> levels;
+    private int lvlIndex = 0;
 
     public LevelHandler(Game game) {
         this.game = game;
         importOutsideSprites();
-        // Stores the data for each level
-        levelOne = new Level(LoadSave.GetLevelData());
+        levels = new ArrayList<Level>();
+        buildAllLevels();
+    }
+
+    public void loadNextLevel() {
+        lvlIndex++;
+        if (lvlIndex >= levels.size()) {
+                lvlIndex = 0;
+                System.out.println("Completed all levels - test");
+                Gamestate.state = Gamestate.MENU;
+        }
+
+        Level newLevel = levels.get(lvlIndex);
+        game.getPlaying().getEnemyManager().loadEnemies(newLevel);
+        game.getPlaying().getPlayer().loadLvlData(newLevel.getLevelData());
+        game.getPlaying().setMaxLevelOffset(newLevel.getLvlOffset());
+    }
+
+    private void buildAllLevels() {
+        BufferedImage[] allLevels = LoadSave.GetLevelMaps();
+        for (BufferedImage img : allLevels)
+            levels.add(new Level(img));
     }
 
     private void importOutsideSprites() {
@@ -32,8 +55,8 @@ public class LevelHandler {
     public void draw(Graphics g, int lvloffset) {
         // offSet to create the illusion of movement and scrolling based on player location
         for (int j = 0; j < Game.TILES_IN_HEIGHT; j++)
-            for (int i = 0; i < levelOne.getLevelData()[0].length; i++) {
-                int index = levelOne.getSpriteIndex(i, j);
+            for (int i = 0; i < levels.get(lvlIndex).getLevelData()[0].length; i++) {
+                int index =  levels.get(lvlIndex).getSpriteIndex(i, j);
                 g.drawImage(levelSprite[index], Game.TILES_SIZE * i - lvloffset, Game.TILES_SIZE * j, Game.TILES_SIZE, Game.TILES_SIZE, null);
             }
     }
@@ -43,8 +66,13 @@ public class LevelHandler {
     }
 
     public Level getCurrentLevel() {
-        return levelOne;
+        return  levels.get(lvlIndex);
     }
+
+    public int getLevelAmount() {
+        return levels.size();
+    }
+
 }
 
 // Idea to create a tutorial area or a place that isn't actually part of a level is to create a new level but never actually

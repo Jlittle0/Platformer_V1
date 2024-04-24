@@ -16,6 +16,7 @@ import static utilz.HelperMethods.*;
 public class Player extends Entity {
 
     private BufferedImage[][] animations;
+    private BufferedImage[] test;
     private boolean moving = false, attacking = false;
     private boolean left, right, jump;
     private int[][] lvlData;
@@ -131,6 +132,8 @@ public class Player extends Entity {
 
     public void render(Graphics g, int lvlOffset) {
         g.drawImage(animations[state][aniIndex], (int)(hitbox.x - xDrawOffset) - lvlOffset + flipX, (int)(hitbox.y - yDrawOffset), width * flipW, height, null);
+        if (state == IDLE)
+            g.drawImage(test[aniIndex], 200, 425, (int)(71 * Game.SCALE * 1.5), (int)(52 * Game.SCALE * 1.5), null);
         // Shows hitbox and attackbox for testing purposes
 //        drawHitbox(g, lvlOffset);
 //        drawAttackBox(g, lvlOffset);
@@ -139,7 +142,6 @@ public class Player extends Entity {
 
     private void drawUI(Graphics g) {
         // Draws the user interface (currently just the status bar)
-        // XY
         g.drawImage(statusBarImg, statusBarX, statusBarY, statusBarWidth, statusBarHeight, null);
         g.setColor(Color.RED);
         g.fillRect(healthBarXStart + statusBarX, healthBarYStart + statusBarY, healthWidth, healthBarHeight);
@@ -148,7 +150,7 @@ public class Player extends Entity {
     }
 
     private void updateAnimationTick() {
-        // Updates the animation and index for each animation based on the desired speed so
+        // Updates the animation tick and index for each animation based on the desired speed so
         // that animations can be slowed down or sped up accordingly and are equally paced.
         aniTick++;
         if (aniTick >= ANIMATION_SPEED) {
@@ -292,6 +294,12 @@ public class Player extends Entity {
                 for (int i = 0; i < animations[j].length; i++)
                     animations[j][i] = img.getSubimage(i * 64, j * 40, 64, 40);
             statusBarImg = LoadSave.GetSpriteAtlas(LoadSave.STATUS_BAR);
+            BufferedImage img2 = LoadSave.GetSpriteAtlas(LoadSave.CHARACTER_TEST);
+            test = new BufferedImage[6];
+            for (int i = 0; i < test.length; i++) {
+                test[i] = img2.getSubimage(i * 125, 0, 125, 100);
+            }
+
     }
 
     public void loadLvlData(int[][] lvlData) {

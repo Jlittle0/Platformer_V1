@@ -32,6 +32,7 @@ public class LoadSave {
     public static final String MENU_BACKGROUND = "menu_background.png";
     public static final String STUMP_ATLAS = "tree_atlas.PNG";
     public static final String LEVEL_COMPLETE_IMG = "level_completed.png";
+    public static final String CHARACTER_TEST = "Character_1.png";
 
     public static BufferedImage GetSpriteAtlas(String fileName) {
         // Method idea taken from stackOverflow (forgot the username but I'll find it and put
@@ -69,24 +70,4 @@ public class LoadSave {
         }
         return imgs;
     }
-
-
-//    public static int[][] GetLevelData() {
-//        // Currently only works for the firstLevel but will eventually have input that specifies
-//        // which level data should actually be read and returned. Does this by taking the
-//        // level data image map and checking the red value to determine which of the
-//        // 48 environment tiles should be located there. Assets from online pack as of now.
-//        BufferedImage img = GetSpriteAtlas(LEVEL_ONE_DATA);
-//        int[][] lvlData = new int[img.getHeight()][img.getWidth()];
-//
-//        for (int j = 0; j < img.getHeight(); j++)
-//            for (int i = 0; i < img.getWidth(); i++) {
-//                Color color = new Color(img.getRGB(i, j));
-//                int value = color.getRed();
-//                if (value >= 48)
-//                    value = 0;
-//                lvlData[j][i] = value;
-//            }
-//        return lvlData;
-//    }
 }

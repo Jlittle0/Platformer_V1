@@ -89,11 +89,11 @@ public class Game implements Runnable{
     @Override
     public void run() {
         // Forgot how to double buffer and felt that this was how every game I know of does stuff
-        // so I made a basic FPS and UPS loop, knew the basic set up simply because I play games
+        // so I made a FPS and UPS loop, knew the basic set up simply because I play games
         // but used a tip from a user on a programming discord in terms of the idea for
         // using current time and then subtracting that from the previous check so that if
-        // time is ever lost between an update because of lag or something, don't reset the difference
-        // but instead just subtract one so that the next update is faster and it's recovered.
+        // time is ever lost between an update because of lag or something, it doesn't lose the
+        // difference and just subtracts one so that the next update is faster and it's recovered.
 
         // Find the time between each update and frame by using set FPS and UPS above
         double timePerFrame = 1000000000.0 / FPS_SET;

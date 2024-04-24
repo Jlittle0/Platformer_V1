@@ -132,8 +132,8 @@ public class Player extends Entity {
 
     public void render(Graphics g, int lvlOffset) {
         g.drawImage(animations[state][aniIndex], (int)(hitbox.x - xDrawOffset) - lvlOffset + flipX, (int)(hitbox.y - yDrawOffset), width * flipW, height, null);
-        if (state == IDLE)
-            g.drawImage(test[aniIndex], 200, 425, (int)(71 * Game.SCALE * 1.5), (int)(52 * Game.SCALE * 1.5), null);
+//        if (state == IDLE)
+//            g.drawImage(test[aniIndex], 200, 425, (int)(71 * Game.SCALE * 1.5), (int)(52 * Game.SCALE * 1.5), null);
         // Shows hitbox and attackbox for testing purposes
 //        drawHitbox(g, lvlOffset);
 //        drawAttackBox(g, lvlOffset);

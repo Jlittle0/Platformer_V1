@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Edit Progress 20?(Complete)&#10;*Added more levels to the game and made the code overall less redundant. &#10;*Need to try to make a way to read all the level files without using a magic number">
-      <change afterPath="$PROJECT_DIR$/resources/Character_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilz/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilz/LoadSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/LoadSave.java" afterDir="false" />
-    </list>
+    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Save&#10;Note: Comitting so that when I attempt to change the size of all the assets and how the levels are mapped everything isn't ruined." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,6 +22,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectColorInfo">{
@@ -59,6 +53,8 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources" />
+      <recent name="$PROJECT_DIR$/resources/lvlsNew" />
+      <recent name="$PROJECT_DIR$/resources/lvls" />
     </key>
   </component>
   <component name="RunManager">
@@ -255,7 +251,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713737988276</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Save&#10;Note: Comitting so that when I attempt to change the size of all the assets and how the levels are mapped everything isn't ruined.">
+      <option name="closed" value="true" />
+      <created>1713980101965</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1713980101965</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -293,7 +297,8 @@
     <MESSAGE value="Edit Progress (Incomplete)&#10;* Began working on testing the tree animation for boss fight in the gameOverlay but wasn't able to finish it and this needs to be complete.&#10;* NEW - Added Stamina bar and added all related methods." />
     <MESSAGE value="Edit Progress 19?(Complete)&#10;*Added more levels to the game and made the code overall less redundant. &#10;*Need to try to make a way to read all the level files without using a magic number" />
     <MESSAGE value="Edit Progress 20?(Complete)&#10;*Added more levels to the game and made the code overall less redundant. &#10;*Need to try to make a way to read all the level files without using a magic number" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit Progress 20?(Complete)&#10;*Added more levels to the game and made the code overall less redundant. &#10;*Need to try to make a way to read all the level files without using a magic number" />
+    <MESSAGE value="Save&#10;Note: Comitting so that when I attempt to change the size of all the assets and how the levels are mapped everything isn't ruined." />
+    <option name="LAST_COMMIT_MESSAGE" value="Save&#10;Note: Comitting so that when I attempt to change the size of all the assets and how the levels are mapped everything isn't ruined." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

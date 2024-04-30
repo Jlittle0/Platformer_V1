@@ -33,6 +33,10 @@ public class LoadSave {
     public static final String STUMP_ATLAS = "tree_atlas.PNG";
     public static final String LEVEL_COMPLETE_IMG = "level_completed.png";
     public static final String CHARACTER_TEST = "Character_1.png";
+    public static final String CONTAINER_ATLAS = "objects_sprites.png";
+    public static final String TRAP_ATLAS = "trap_atlas.png";
+    public static final String CANNON_ATLAS = "cannon_atlas.png";
+    public static final String CANNON_BALL = "cannonball.png";
 
     public static BufferedImage GetSpriteAtlas(String fileName) {
         // Method idea taken from stackOverflow (forgot the username but I'll find it and put

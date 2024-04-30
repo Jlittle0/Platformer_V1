@@ -4,6 +4,7 @@ import entities.EnemyManager;
 import entities.Player;
 import levels.LevelHandler;
 import main.Game;
+import objects.ObjectManager;
 import ui.GameOverOverlay;
 import ui.LevelCompletedOverlay;
 import ui.PauseOverlay;
@@ -19,6 +20,7 @@ public class Playing extends State implements Statemethods {
     private Player player;
     private LevelHandler levelHandler;
     private EnemyManager enemyManager;
+    private ObjectManager objectManager;
     private PauseOverlay pauseOverlay;
     private GameOverOverlay gameOverOverlay;
     private LevelCompletedOverlay levelCompletedOverlay;
@@ -52,6 +54,7 @@ public class Playing extends State implements Statemethods {
 
     private void loadStartLevel() {
             enemyManager.loadEnemies(levelHandler.getCurrentLevel());
+            objectManager.loadObjects(levelHandler.getCurrentLevel());
     }
 
     private void calcLvlOffset() {
@@ -62,6 +65,7 @@ public class Playing extends State implements Statemethods {
         // Initializes all the classes etc. so that the constructor isn't so cluttered
         levelHandler = new LevelHandler(game);
         enemyManager = new EnemyManager(this);
+        objectManager = new ObjectManager(this);
         player = new Player(200, 200, (int)(64 * Game.SCALE), (int)(40 * Game.SCALE), this);
         player.loadLvlData(levelHandler.getCurrentLevel().getLevelData());
         player.setSpawn(levelHandler.getCurrentLevel().getPlayerSpawn());
@@ -80,6 +84,7 @@ public class Playing extends State implements Statemethods {
             levelCompletedOverlay.update();
         } else if (!gameOver) {
             levelHandler.update();
+            objectManager.update(levelHandler.getCurrentLevel().getLevelData(), player);
             player.update();
             enemyManager.update(levelHandler.getCurrentLevel().getLevelData(), player);
             checkCloseToBorder();
@@ -112,8 +117,9 @@ public class Playing extends State implements Statemethods {
 
         // Draws each individual part of the game in the order of level tiles, player, then enemies
         levelHandler.draw(g, xLvlOffset);
-        player.render(g, xLvlOffset);
+        objectManager.draw(g, xLvlOffset);
         enemyManager.draw(g, xLvlOffset);
+        player.render(g, xLvlOffset);
 
         // Draw the paused or gameOver overlays depending on whether or not the game is paused and over
         if (paused) {
@@ -134,16 +140,25 @@ public class Playing extends State implements Statemethods {
         lvlCompleted = false;
         player.resetAll();
         enemyManager.resetAllEnemies();
+        objectManager.resetAllObjects();
     }
 
     public void setGameOver(boolean gameOver) {
         this.gameOver = gameOver;
     }
 
+    public void checkObjectHit(Rectangle2D.Float attackbox) {
+        objectManager.checkObjectHit(attackbox);
+    }
+
     public void checkEnemyHit(Rectangle2D.Float attackBox) {
         // Checks whether or not an enemy was hit by seeing if there's an overlap between the
         // attackBox of the player and the hitbox of one of the enemies
         enemyManager.checkEnemyHit(attackBox);
+    }
+
+    public void checkTrapsTouched(Player player) {
+        objectManager.checkTrapsTouched(player);
     }
 
     @Override
@@ -252,6 +267,10 @@ public class Playing extends State implements Statemethods {
 
     public EnemyManager getEnemyManager() {
         return enemyManager;
+    }
+
+    public ObjectManager getObjectManager() {
+        return objectManager;
     }
 
     public void setLevelCompleted(boolean complete) {

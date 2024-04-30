@@ -9,6 +9,12 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import static utilz.Constants.EnemyConstants.CRAB;
+import static utilz.Constants.ObjectConstants.*;
+
+import objects.Cannon;
+import objects.ContainerObject;
+import objects.Projectile;
+import objects.Spike;
 
 public class HelperMethods {
 
@@ -37,6 +43,10 @@ public class HelperMethods {
         float yIndex = y / Game.TILES_SIZE;
 
         return IsTileSolid((int)xIndex, (int)yIndex, lvlData);
+    }
+
+    public static boolean IsProjectileHittingLevel(Projectile p, int[][] lvlData) {
+            return IsSolid(p.getHitbox().x + p.getHitbox().width / 2, p.getHitbox().y + p.getHitbox().height / 2, lvlData);
     }
 
     public static boolean IsTileSolid(int xTile, int yTile, int[][] lvlData) {
@@ -95,16 +105,32 @@ public class HelperMethods {
             return (IsSolid(hitbox.x + xSpeed, hitbox.y + hitbox.height + 1, lvlData));
     }
 
+    public static boolean CanCannonSeePlayer(int[][] lvlData, Rectangle2D.Float firstHitbox, Rectangle2D.Float secondHitbox, int yTile) {
+        int firstXTile = (int)(firstHitbox.x / Game.TILES_SIZE);
+        int secondXTile = (int)(secondHitbox.x / Game.TILES_SIZE);
+
+        if (firstXTile > secondXTile)
+            return IsAllTilesClear(secondXTile, firstXTile, yTile, lvlData);
+        else
+            return IsAllTilesClear(firstXTile, secondXTile, yTile, lvlData);
+    }
+
+    public static boolean IsAllTilesClear(int xStart, int xEnd, int yTile, int[][] lvlData) {
+        for (int i = 0; i < xEnd - xStart; i++)
+            if (IsTileSolid(xStart + i, yTile, lvlData))
+                return false;
+            return true;
+    }
+
     public static boolean IsAllTilesWalkable(int xStart, int xEnd, int yTile, int[][] lvlData) {
         // Determines for enemies whether or not the path to the player is walkable for them
         // and they should pursue or whether they shouldn't detect the player because there's
         // an obstruction preventing them from moving to the player's position
-        for (int i = 0; i < xEnd - xStart; i++) {
-            if (IsTileSolid(xStart + i, yTile, lvlData))
-                return false;
-            if (!IsTileSolid(xStart + i, yTile + 1, lvlData))
-                return false;
-        }
+        if (IsAllTilesClear(xStart, xEnd, yTile, lvlData))
+            for (int i = 0; i < xEnd - xStart; i++) {
+                if (!IsTileSolid(xStart + i, yTile + 1, lvlData))
+                     return false;
+            }
         return true;
     }
 
@@ -162,5 +188,43 @@ public class HelperMethods {
         return new Point(1 * Game.TILES_SIZE, 1 * Game.TILES_SIZE);
     }
 
+    public static ArrayList<ContainerObject> GetContainers(BufferedImage img) {
+        ArrayList<ContainerObject> list = new ArrayList<ContainerObject>();
 
+        for (int j = 0; j < img.getHeight(); j++)
+            for (int i = 0; i < img.getWidth(); i++) {
+                Color color = new Color(img.getRGB(i, j));
+                int value = color.getBlue();
+                if (value == BOX || value == BARREL)
+                    list.add(new ContainerObject(i * Game.TILES_SIZE, j * Game.TILES_SIZE, value));
+            }
+        return list;
+    }
+
+
+    public static ArrayList<Spike> GetSpike(BufferedImage img) {
+        ArrayList<Spike> list = new ArrayList<Spike>();
+
+        for (int j = 0; j < img.getHeight(); j++)
+            for (int i = 0; i < img.getWidth(); i++) {
+                Color color = new Color(img.getRGB(i, j));
+                int value = color.getBlue();
+                if (value == SPIKE)
+                    list.add(new Spike(i * Game.TILES_SIZE, j * Game.TILES_SIZE, SPIKE));
+            }
+        return list;
+    }
+
+    public static ArrayList<Cannon> GetCannons(BufferedImage img) {
+        ArrayList<Cannon> list = new ArrayList<Cannon>();
+
+        for (int j = 0; j < img.getHeight(); j++)
+            for (int i = 0; i < img.getWidth(); i++) {
+                Color color = new Color(img.getRGB(i, j));
+                int value = color.getBlue();
+                if (value == CANNON_LEFT || value == CANNON_RIGHT)
+                    list.add(new Cannon(i * Game.TILES_SIZE, j * Game.TILES_SIZE, value));
+            }
+        return list;
+    }
 }

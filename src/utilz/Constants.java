@@ -10,6 +10,54 @@ public class Constants {
     public static final float GRAVITY = 0.04f * Game.SCALE;
     public static final int ANIMATION_SPEED = 35;
 
+    public static class Projectiles {
+        public static final int CANNON_BALL = 0;
+        public static final int ARROW = 1;
+
+        public static final int CANNON_BALL_DEFAULT_WIDTH = 15;
+        public static final int CANNON_BALL_DEFAULT_HEIGHT = 15;
+        public static final int CANNON_BALL_WIDTH = (int)(CANNON_BALL_DEFAULT_WIDTH * Game.SCALE);
+        public static final int CANNON_BALL_HEIGHT = (int)(CANNON_BALL_DEFAULT_HEIGHT * Game.SCALE);
+        public static final float CBALLSPEED = 0.75f * Game.SCALE;
+
+    }
+
+    public static class ObjectConstants {
+        // Object classifications
+        public static final int BARREL = 2;
+        public static final int BOX = 3;
+        public static final int SPIKE = 4;
+        public static final int CANNON_LEFT = 5;
+        public static final int CANNON_RIGHT = 6;
+
+        public static final int CONTAINER_DEFAULT_WIDTH = 40;
+        public static final int CONTAINER_DEFAULT_HEIGHT = 30;
+        public static final int CONTAINER_WIDTH = (int)(CONTAINER_DEFAULT_WIDTH * Game.SCALE);
+        public static final int CONTAINER_HEIGHT = (int)(CONTAINER_DEFAULT_HEIGHT * Game.SCALE);
+
+        public static final int SPIKE_DEFAULT_WIDTH = 32;
+        public static final int SPIKE_DEFAULT_HEIGHT = 32;
+        public static final int SPIKE_WIDTH = (int)(SPIKE_DEFAULT_WIDTH * Game.SCALE);
+        public static final int SPIKE_HEIGHT = (int)(SPIKE_DEFAULT_HEIGHT * Game.SCALE);
+
+        public static final int CANNON_DEFAULT_WIDTH = 40;
+        public static final int CANNON_DEFAULT_HEIGHT = 26;
+        public static final int CANNON_WIDTH = (int)(CANNON_DEFAULT_WIDTH * Game.SCALE);
+        public static final int CANNON_HEIGHT = (int)(CANNON_DEFAULT_HEIGHT * Game.SCALE);
+
+        public static int GetSpriteAmount(int objectType) {
+            switch (objectType) {
+                case BARREL, BOX:
+                    return 8;
+                case CANNON_LEFT, CANNON_RIGHT:
+                    return 7;
+            }
+            return 1;
+        }
+
+
+    }
+
     public static class EnemyConstants {
         // Constants for enemy type
         public static final int CRAB = 0;

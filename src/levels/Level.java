@@ -2,7 +2,10 @@ package levels;
 
 import entities.Crab;
 import main.Game;
-import utilz.LoadSave;
+import objects.Cannon;
+import objects.Spike;
+import utilz.HelperMethods;
+import objects.ContainerObject;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -15,6 +18,9 @@ public class Level {
     private BufferedImage img;
     private int[][] lvlData;
     private ArrayList<Crab> crabs;
+    private ArrayList<ContainerObject> containers;
+    private ArrayList<Spike> spikes;
+    private ArrayList<Cannon> cannons;
     private int lvlTilesWide;
     private int maxTilesOffset;
     private int maxLvlOffsetX;
@@ -24,8 +30,23 @@ public class Level {
         this.img = img;
         createLevelData();
         createEnemies();
+        createContainers();
+        createSpikes();
+        createCannons();
         calculateOffsets();
         calculatePlayerSpawn();
+    }
+
+    private void createCannons() {
+        cannons = HelperMethods.GetCannons(img);
+    }
+
+    private void createSpikes() {
+        spikes = HelperMethods.GetSpike(img);
+    }
+
+    private void createContainers() {
+        containers = HelperMethods.GetContainers(img);
     }
 
     private void calculatePlayerSpawn() {
@@ -64,5 +85,17 @@ public class Level {
 
     public Point getPlayerSpawn() {
         return playerSpawn;
+    }
+
+    public ArrayList<ContainerObject> getContainers() {
+        return containers;
+    }
+
+    public ArrayList<Spike> getSpikes() {
+        return spikes;
+    }
+
+    public ArrayList<Cannon> getCannons() {
+        return cannons;
     }
 }

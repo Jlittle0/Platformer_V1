@@ -16,7 +16,7 @@ import static utilz.HelperMethods.*;
 public class Player extends Entity {
 
     private BufferedImage[][] animations;
-    private BufferedImage[] test;
+    private BufferedImage[][] test;
     private boolean moving = false, attacking = false;
     private boolean left, right, jump;
     private int[][] lvlData;
@@ -63,6 +63,8 @@ public class Player extends Entity {
     private boolean attackChecked = false;
     private Playing playing;
 
+    private int tileY = 0;
+
     public Player(float x, float y, int width, int height, Playing playing) {
         super(x, y, width, height);
         loadAnimations();
@@ -90,7 +92,6 @@ public class Player extends Entity {
     public void update() {
         // Updates everything and each is explained in their own section
         updateStatusBar();
-        updateStatusBar();
 
         if (currentHealth <= 0) {
             playing.setGameOver(true);
@@ -99,10 +100,18 @@ public class Player extends Entity {
 
         updateAttackBox();
         updatePos();
+        if (moving) {
+            checkTrapsTouched();
+            tileY = (int)(hitbox.y / Game.TILES_SIZE);
+        }
         if (attacking)
             checkAttack();
         updateAnimationTick();
         setAnimation();
+    }
+
+    private void checkTrapsTouched() {
+        playing.checkTrapsTouched(this);
     }
 
     private void checkAttack() {
@@ -112,6 +121,7 @@ public class Player extends Entity {
         attackChecked = true;
         // Eventually checks of an enemy hitbox overlaps with the player's attack and deals damage
         playing.checkEnemyHit(attackBox);
+        playing.checkObjectHit(attackBox);
     }
 
     private void updateAttackBox() {
@@ -133,7 +143,7 @@ public class Player extends Entity {
     public void render(Graphics g, int lvlOffset) {
         g.drawImage(animations[state][aniIndex], (int)(hitbox.x - xDrawOffset) - lvlOffset + flipX, (int)(hitbox.y - yDrawOffset), width * flipW, height, null);
 //        if (state == IDLE)
-//            g.drawImage(test[aniIndex], 200, 425, (int)(71 * Game.SCALE * 1.5), (int)(52 * Game.SCALE * 1.5), null);
+//            g.drawImage(test[1][aniIndex], 200, 425, (int)(71 * Game.SCALE * 1.5), (int)(52 * Game.SCALE * 1.5), null);
         // Shows hitbox and attackbox for testing purposes
 //        drawHitbox(g, lvlOffset);
 //        drawAttackBox(g, lvlOffset);
@@ -278,6 +288,10 @@ public class Player extends Entity {
             currentHealth = maxHealth;
     }
 
+    public void kill() {
+        currentHealth = 0;
+    }
+
     public void changeStamina(int value) {
         currentStamina += value;
         if (currentStamina <= 0)
@@ -295,10 +309,11 @@ public class Player extends Entity {
                     animations[j][i] = img.getSubimage(i * 64, j * 40, 64, 40);
             statusBarImg = LoadSave.GetSpriteAtlas(LoadSave.STATUS_BAR);
             BufferedImage img2 = LoadSave.GetSpriteAtlas(LoadSave.CHARACTER_TEST);
-            test = new BufferedImage[6];
-            for (int i = 0; i < test.length; i++) {
-                test[i] = img2.getSubimage(i * 125, 0, 125, 100);
-            }
+            test = new BufferedImage[2][6];
+            for (int j = 0; j < test.length; j++)
+                for (int i = 0; i < test[j].length; i++)
+                    test[j][i] = img2.getSubimage(i * 125, j * 100, 125, 100);
+
 
     }
 
@@ -350,4 +365,9 @@ public class Player extends Entity {
         if (!IsEntityOnFloor(hitbox, lvlData))
             inAir = true;
     }
+
+    public int getTileY() {
+        return tileY;
+    }
+
 }

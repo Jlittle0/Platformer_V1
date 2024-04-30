@@ -13,8 +13,6 @@ import static utilz.Constants.PlayerConstants.GetSpriteAmount;
 
 public class GameOverOverlay {
     private Playing playing;
-    private BufferedImage[] animation;
-    private int aniTick, aniIndex, aniSpeed = 25;
 
     public GameOverOverlay(Playing playing) {
         this.playing = playing;
@@ -35,25 +33,6 @@ public class GameOverOverlay {
         if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
             playing.resetAll();
             Gamestate.state = Gamestate.MENU;
-        }
-    }
-
-    private void loadAnimations() {
-        // Loads all the tree animations from the atlas into an array of images
-        BufferedImage img = LoadSave.GetSpriteAtlas(LoadSave.STUMP_ATLAS);
-        animation = new BufferedImage[7];
-        for (int i = 0; i < animation.length; i++)
-                animation[i] = img.getSubimage(i * 180, 0, 180, 180);
-    }
-
-    private void updateAnimationTick() {
-        aniTick++;
-        if (aniTick >= aniSpeed) {
-            aniTick = 0;
-            aniIndex++;
-            if (aniIndex >= 6) {
-                aniIndex = 6;
-            }
         }
     }
 }

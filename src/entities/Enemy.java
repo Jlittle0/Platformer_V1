@@ -25,7 +25,21 @@ public abstract class Enemy extends Entity {
         this.enemyType = enemyType;
         maxHealth = GetMaxHealth(enemyType);
         currentHealth = maxHealth;
-        walkSpeed = Game.SCALE * 0.35f;
+        setWalkSpeed();
+    }
+
+    private void setWalkSpeed() {
+        switch (enemyType) {
+            case CRAB:
+                walkSpeed = Game.SCALE * 0.35f;
+                break;
+            case WORM:
+                walkSpeed = Game.SCALE * 0.1f;
+                break;
+            default:
+                walkSpeed = Game.SCALE * 0.35f;
+        }
+
     }
 
     protected void firstUpdateCheck(int[][] lvlData) {

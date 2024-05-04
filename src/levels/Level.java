@@ -1,6 +1,7 @@
 package levels;
 
 import entities.Crab;
+import entities.Worm;
 import main.Game;
 import objects.Cannon;
 import objects.Spike;
@@ -18,6 +19,7 @@ public class Level {
     private BufferedImage img;
     private int[][] lvlData;
     private ArrayList<Crab> crabs;
+    private ArrayList<Worm> worms;
     private ArrayList<ContainerObject> containers;
     private ArrayList<Spike> spikes;
     private ArrayList<Cannon> cannons;
@@ -61,6 +63,7 @@ public class Level {
 
     private void createEnemies() {
         crabs = GetCrabs(img);
+        worms = GetWorms(img);
     }
 
     private void createLevelData() {
@@ -81,6 +84,10 @@ public class Level {
 
     public ArrayList<Crab> getCrabs() {
         return crabs;
+    }
+
+    public ArrayList<Worm> getWorms() {
+        return worms;
     }
 
     public Point getPlayerSpawn() {

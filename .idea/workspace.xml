@@ -4,29 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Edit Progress #21:&#10;* Mainly worked on character design but also wanted to create this lengthy TODO list for checkpoints over next work periods.&#10;* (TODO) - Create an abstract object class and related subclasses such as traps etc.&#10;* (TODO) - Create subclasses for the player class">
-      <change afterPath="$PROJECT_DIR$/resources/cannon_atlas.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/cannonball.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/objects_sprites.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/trap_atlas.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/objects/Ballista.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/objects/Cannon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/objects/ContainerObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/objects/GameObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/objects/ObjectManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/objects/Projectile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/objects/Spike.java" afterDir="false" />
+    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Edit Progress #22:&#10;* Completed the object classes and works on the traps for the game so that the player can take damage and die from regular object.&#10;* (TODO) - Add healthpacks or bandages or something that drop from the containers in the level and that the player can store in their &quot;inventory&quot; which can increase their health throughout the levels&#10;* (TODO) - Complete ballista object and arrow projectile &#10;* (TODO) - Create subclasses for the player class">
+      <change afterPath="$PROJECT_DIR$/resources/LevelSprites.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lvl1bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/worm_atlas.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/Worm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gameStates/Tutorial.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/Character_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/Character_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/button_atlas.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/button_atlas.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lvls/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lvls/1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lvls/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lvls/2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lvls/3.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lvls/3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/menu_background.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/menu_background.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/EnemyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/EnemyManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameStates/Gamestate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameStates/Gamestate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gameStates/Playing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameStates/Playing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/levels/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/levels/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/levels/LevelHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/levels/LevelHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MainClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/GameOverOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/GameOverOverlay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilz/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilz/HelperMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/HelperMethods.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilz/LoadSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/LoadSave.java" afterDir="false" />
@@ -80,8 +73,8 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources" />
-      <recent name="$PROJECT_DIR$/resources/lvlsNew" />
       <recent name="$PROJECT_DIR$/resources/lvls" />
+      <recent name="$PROJECT_DIR$/resources/lvlsNew" />
     </key>
   </component>
   <component name="RunManager">
@@ -294,7 +287,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713986669218</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Edit Progress #22:&#10;* Completed the object classes and works on the traps for the game so that the player can take damage and die from regular object.&#10;* (TODO) - Add healthpacks or bandages or something that drop from the containers in the level and that the player can store in their &quot;inventory&quot; which can increase their health throughout the levels&#10;* (TODO) - Complete ballista object and arrow projectile &#10;* (TODO) - Create subclasses for the player class">
+      <option name="closed" value="true" />
+      <created>1714493503810</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1714493503810</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -309,7 +310,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Ep 3 - Complete" />
     <MESSAGE value="Ep 4 - Complete" />
     <MESSAGE value="Ep 5 - Complete" />
     <MESSAGE value="Ep 6 - Complete" />
@@ -334,7 +334,8 @@
     <MESSAGE value="Edit Progress 20?(Complete)&#10;*Added more levels to the game and made the code overall less redundant. &#10;*Need to try to make a way to read all the level files without using a magic number" />
     <MESSAGE value="Save&#10;Note: Comitting so that when I attempt to change the size of all the assets and how the levels are mapped everything isn't ruined." />
     <MESSAGE value="Commit for submission" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit for submission" />
+    <MESSAGE value="Edit Progress #22:&#10;* Completed the object classes and works on the traps for the game so that the player can take damage and die from regular object.&#10;* (TODO) - Add healthpacks or bandages or something that drop from the containers in the level and that the player can store in their &quot;inventory&quot; which can increase their health throughout the levels&#10;* (TODO) - Complete ballista object and arrow projectile &#10;* (TODO) - Create subclasses for the player class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit Progress #22:&#10;* Completed the object classes and works on the traps for the game so that the player can take damage and die from regular object.&#10;* (TODO) - Add healthpacks or bandages or something that drop from the containers in the level and that the player can store in their &quot;inventory&quot; which can increase their health throughout the levels&#10;* (TODO) - Complete ballista object and arrow projectile &#10;* (TODO) - Create subclasses for the player class" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

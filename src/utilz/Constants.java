@@ -61,6 +61,7 @@ public class Constants {
     public static class EnemyConstants {
         // Constants for enemy type
         public static final int CRAB = 0;
+        public static final int WORM = 1;
 
         // Crab-specific state constants
         public static final int IDLE = 0;
@@ -68,6 +69,14 @@ public class Constants {
         public static final int ATTACK = 2;
         public static final int HIT = 3;
         public static final int DEAD = 4;
+
+        public static final int WORM_DEFAULT_WIDTH = 40;
+        public static final int WORM_DEFAULT_HEIGHT = 11;
+        public static final int WORM_WIDTH = (int)(WORM_DEFAULT_WIDTH * Game.SCALE);
+        public static final int WORM_HEIGHT = (int)(WORM_DEFAULT_HEIGHT * Game.SCALE);
+
+        public static final int WORM_DRAWOFFSET_X = (int)(5 * Game.SCALE);
+        public static final int WORM_DRAWOFFSET_Y = (int)(3 * Game.SCALE);
 
         // Basic dimensions for crab enemy
         public static final int CRAB_DEFAULT_WIDTH = 72;
@@ -95,6 +104,19 @@ public class Constants {
                             return 4;
                         case DEAD:
                             return 5;
+                    }
+                case WORM:
+                    switch (enemyState) {
+                        case IDLE:
+                            return 1;
+                        case RUNNING:
+                            return 5;
+                        case ATTACK:
+                            return 0;
+                        case HIT:
+                            return 3;
+                        case DEAD:
+                            return 0;
                     }
             }
             return 0;

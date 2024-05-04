@@ -1,6 +1,7 @@
 package utilz;
 
 import entities.Crab;
+import entities.Worm;
 import main.Game;
 
 import java.awt.*;
@@ -9,6 +10,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import static utilz.Constants.EnemyConstants.CRAB;
+import static utilz.Constants.EnemyConstants.WORM;
 import static utilz.Constants.ObjectConstants.*;
 
 import objects.Cannon;
@@ -172,6 +174,18 @@ public class HelperMethods {
                 int value = color.getGreen();
                 if (value == CRAB)
                     list.add(new Crab(i * Game.TILES_SIZE, j * Game.TILES_SIZE));
+            }
+        return list;
+    }
+
+    public static ArrayList<Worm> GetWorms(BufferedImage img) {
+        ArrayList<Worm> list = new ArrayList<Worm>();
+        for (int j = 0; j < img.getHeight(); j++)
+            for (int i = 0; i < img.getWidth(); i++) {
+                Color color = new Color(img.getRGB(i, j));
+                int value = color.getGreen();
+                if (value == WORM)
+                    list.add(new Worm(i * Game.TILES_SIZE, j * Game.TILES_SIZE));
             }
         return list;
     }

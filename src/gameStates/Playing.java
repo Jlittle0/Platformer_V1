@@ -25,6 +25,7 @@ public class Playing extends State implements Statemethods {
     private GameOverOverlay gameOverOverlay;
     private LevelCompletedOverlay levelCompletedOverlay;
     private boolean paused = false;
+    private boolean playerDying = false;
 
     // Borders to create the illusion of movement if the player is too far right or left of the screen
     private int xLvlOffset;
@@ -82,7 +83,11 @@ public class Playing extends State implements Statemethods {
             pauseOverlay.update();
         } else if (lvlCompleted) {
             levelCompletedOverlay.update();
-        } else if (!gameOver) {
+        } else if (gameOver){
+//            gameOverOverlay.update();
+        } else if (playerDying) {
+            player.update();
+        }else {
             levelHandler.update();
             objectManager.update(levelHandler.getCurrentLevel().getLevelData(), player);
             player.update();
@@ -138,6 +143,7 @@ public class Playing extends State implements Statemethods {
         gameOver = false;
         paused = false;
         lvlCompleted = false;
+        playerDying = false;
         player.resetAll();
         enemyManager.resetAllEnemies();
         objectManager.resetAllObjects();
@@ -275,5 +281,9 @@ public class Playing extends State implements Statemethods {
 
     public void setLevelCompleted(boolean complete) {
         this.lvlCompleted = complete;
+    }
+
+    public void setPlayerDying(boolean playerDying) {
+        this.playerDying = playerDying;
     }
 }

@@ -1,6 +1,7 @@
 package ui;
 
 import gameStates.Gamestate;
+import main.Game;
 import utilz.LoadSave;
 
 import java.awt.*;
@@ -12,10 +13,11 @@ public class OptionsButton {
     private int xPos, yPos, rowIndex, index;
     private int xOffsetCenter = OB_WIDTH / 2;
     private Gamestate state;
+    private Game game;
     private BufferedImage[] imgs;
     private boolean mouseOver, mousePressed;
     private Rectangle bounds;
-    private int difficulty = -1;
+    private int difficulty = 1;
 
 
     public OptionsButton(int xPos, int yPos, int rowIndex, Gamestate state) {
@@ -27,11 +29,12 @@ public class OptionsButton {
         initBounds();
     }
 
-    public OptionsButton(int xPos, int yPos, int rowIndex, int difficulty) {
+    public OptionsButton(int xPos, int yPos, int rowIndex, int difficulty, Game game) {
         this.xPos = xPos;
         this.yPos = yPos;
         this.rowIndex = rowIndex;
         this.difficulty = difficulty;
+        this.game = game;
         loadImgs();
         initBounds();
     }
@@ -85,7 +88,7 @@ public class OptionsButton {
         if (state != null)
             Gamestate.state = state;
         else
-            System.out.println("Difficulty");
+            game.setDifficulty(difficulty);
     }
 
     public void resetBools() {

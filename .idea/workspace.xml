@@ -4,21 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Edit Progress #23:&#10;* Implemented a new worm enemy (can't attack yet due to lack of animation or take damage)&#10;* Added some new assets (most are still a WIP)&#10;* Began working on a tutorial state tho not much progress was made again due to lack of actual assets to work with&#10;Old but still relavant goals:&#10;* (TODO) - Add healthpacks or bandages or something that drop from the containers in the level and that the player can store in their &quot;inventory&quot; which can increase their health throughout the levels&#10;* (TODO) - Complete ballista object and arrow projectile &#10;* (TODO) - Complete beastiary and instructions gamestates &#10;* (TODO) - Add a 2nd set of levels and boss fight">
-      <change afterPath="$PROJECT_DIR$/resources/menu_buttons.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/options_background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/options_buttons.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gameStates/OptionsState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/OptionsButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/SoundControls.java" afterDir="false" />
+    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Edit Progress #24:&#10;* Began working on the option menu and did most of the work.">
+      <change afterPath="$PROJECT_DIR$/resources/highlights.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameStates/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameStates/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameStates/Playing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameStates/Playing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/inputs/KeyboardInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/KeyboardInputs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/inputs/MouseInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/MouseInputs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/PauseOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/PauseOverlay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilz/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameStates/OptionsState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameStates/OptionsState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/OptionsButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/OptionsButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilz/LoadSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/LoadSave.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -303,7 +293,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714801086610</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Edit Progress #24:&#10;* Began working on the option menu and did most of the work.">
+      <option name="closed" value="true" />
+      <created>1714948391521</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1714948391521</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -318,7 +316,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Ep 5 - Complete" />
     <MESSAGE value="Ep 6 - Complete" />
     <MESSAGE value="Ep 7 - Complete" />
     <MESSAGE value="Ep 8 - Complete" />
@@ -343,7 +340,8 @@
     <MESSAGE value="Commit for submission" />
     <MESSAGE value="Edit Progress #22:&#10;* Completed the object classes and works on the traps for the game so that the player can take damage and die from regular object.&#10;* (TODO) - Add healthpacks or bandages or something that drop from the containers in the level and that the player can store in their &quot;inventory&quot; which can increase their health throughout the levels&#10;* (TODO) - Complete ballista object and arrow projectile &#10;* (TODO) - Create subclasses for the player class" />
     <MESSAGE value="Edit Progress #23:&#10;* Implemented a new worm enemy (can't attack yet due to lack of animation or take damage)&#10;* Added some new assets (most are still a WIP)&#10;* Began working on a tutorial state tho not much progress was made again due to lack of actual assets to work with&#10;Old but still relavant goals:&#10;* (TODO) - Add healthpacks or bandages or something that drop from the containers in the level and that the player can store in their &quot;inventory&quot; which can increase their health throughout the levels&#10;* (TODO) - Complete ballista object and arrow projectile &#10;* (TODO) - Complete beastiary and instructions gamestates &#10;* (TODO) - Add a 2nd set of levels and boss fight" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit Progress #23:&#10;* Implemented a new worm enemy (can't attack yet due to lack of animation or take damage)&#10;* Added some new assets (most are still a WIP)&#10;* Began working on a tutorial state tho not much progress was made again due to lack of actual assets to work with&#10;Old but still relavant goals:&#10;* (TODO) - Add healthpacks or bandages or something that drop from the containers in the level and that the player can store in their &quot;inventory&quot; which can increase their health throughout the levels&#10;* (TODO) - Complete ballista object and arrow projectile &#10;* (TODO) - Complete beastiary and instructions gamestates &#10;* (TODO) - Add a 2nd set of levels and boss fight" />
+    <MESSAGE value="Edit Progress #24:&#10;* Began working on the option menu and did most of the work." />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit Progress #24:&#10;* Began working on the option menu and did most of the work." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

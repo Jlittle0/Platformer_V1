@@ -21,7 +21,7 @@ public class LoadSave {
     // All the images used throughout the game as strings to easily call later
     public static final String PLAYER_ATLAS = "player_sprites.png";
     public static final String LEVEL_ATLAS = "LevelSprites.png";
-    public static final String MENU_BUTTONS= "button_atlas.png";
+    public static final String MENU_BUTTONS= "menu_buttons.png";
     public static final String PAUSE_BACKGROUND= "pause_menu.png";
     public static final String SOUND_BUTTONS = "sound_button.png";
     public static final String URM_BUTTONS = "urm_buttons.png";
@@ -38,6 +38,8 @@ public class LoadSave {
     public static final String CANNON_ATLAS = "cannon_atlas.png";
     public static final String CANNON_BALL = "cannonball.png";
     public static final String WORM_ATLAS = "worm_atlas.png";
+    public static final String OPTIONS_BACKGROUND = "options_background.png";
+    public static final String OPTIONS_BUTTONS = "options_buttons.png";
 
     public static BufferedImage GetSpriteAtlas(String fileName) {
         // Method idea taken from stackOverflow (forgot the username but I'll find it and put

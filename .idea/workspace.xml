@@ -4,24 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Edit Progress #22:&#10;* Completed the object classes and works on the traps for the game so that the player can take damage and die from regular object.&#10;* (TODO) - Add healthpacks or bandages or something that drop from the containers in the level and that the player can store in their &quot;inventory&quot; which can increase their health throughout the levels&#10;* (TODO) - Complete ballista object and arrow projectile &#10;* (TODO) - Create subclasses for the player class">
-      <change afterPath="$PROJECT_DIR$/resources/LevelSprites.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lvl1bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worm_atlas.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/Worm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gameStates/Tutorial.java" afterDir="false" />
+    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Edit Progress #23:&#10;* Implemented a new worm enemy (can't attack yet due to lack of animation or take damage)&#10;* Added some new assets (most are still a WIP)&#10;* Began working on a tutorial state tho not much progress was made again due to lack of actual assets to work with&#10;Old but still relavant goals:&#10;* (TODO) - Add healthpacks or bandages or something that drop from the containers in the level and that the player can store in their &quot;inventory&quot; which can increase their health throughout the levels&#10;* (TODO) - Complete ballista object and arrow projectile &#10;* (TODO) - Complete beastiary and instructions gamestates &#10;* (TODO) - Add a 2nd set of levels and boss fight">
+      <change afterPath="$PROJECT_DIR$/resources/menu_buttons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/options_background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/options_buttons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gameStates/OptionsState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/OptionsButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/SoundControls.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/button_atlas.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/button_atlas.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lvls/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lvls/1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/menu_background.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/menu_background.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/EnemyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/EnemyManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameStates/Gamestate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameStates/Gamestate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameStates/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameStates/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gameStates/Playing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameStates/Playing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/levels/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/levels/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputs/KeyboardInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/KeyboardInputs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputs/MouseInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/MouseInputs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/PauseOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/PauseOverlay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilz/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilz/HelperMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/HelperMethods.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilz/LoadSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/LoadSave.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,19 +50,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/joshlittle/IdeaProjects/Platformer_V1/resources/lvls",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/joshlittle/IdeaProjects/Platformer_V1/resources/lvls&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/lvls" />
@@ -75,6 +72,9 @@
       <recent name="$PROJECT_DIR$/resources" />
       <recent name="$PROJECT_DIR$/resources/lvls" />
       <recent name="$PROJECT_DIR$/resources/lvlsNew" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ui" />
     </key>
   </component>
   <component name="RunManager">
@@ -295,7 +295,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714493503810</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Edit Progress #23:&#10;* Implemented a new worm enemy (can't attack yet due to lack of animation or take damage)&#10;* Added some new assets (most are still a WIP)&#10;* Began working on a tutorial state tho not much progress was made again due to lack of actual assets to work with&#10;Old but still relavant goals:&#10;* (TODO) - Add healthpacks or bandages or something that drop from the containers in the level and that the player can store in their &quot;inventory&quot; which can increase their health throughout the levels&#10;* (TODO) - Complete ballista object and arrow projectile &#10;* (TODO) - Complete beastiary and instructions gamestates &#10;* (TODO) - Add a 2nd set of levels and boss fight">
+      <option name="closed" value="true" />
+      <created>1714801086610</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1714801086610</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -310,7 +318,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Ep 4 - Complete" />
     <MESSAGE value="Ep 5 - Complete" />
     <MESSAGE value="Ep 6 - Complete" />
     <MESSAGE value="Ep 7 - Complete" />
@@ -335,7 +342,8 @@
     <MESSAGE value="Save&#10;Note: Comitting so that when I attempt to change the size of all the assets and how the levels are mapped everything isn't ruined." />
     <MESSAGE value="Commit for submission" />
     <MESSAGE value="Edit Progress #22:&#10;* Completed the object classes and works on the traps for the game so that the player can take damage and die from regular object.&#10;* (TODO) - Add healthpacks or bandages or something that drop from the containers in the level and that the player can store in their &quot;inventory&quot; which can increase their health throughout the levels&#10;* (TODO) - Complete ballista object and arrow projectile &#10;* (TODO) - Create subclasses for the player class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit Progress #22:&#10;* Completed the object classes and works on the traps for the game so that the player can take damage and die from regular object.&#10;* (TODO) - Add healthpacks or bandages or something that drop from the containers in the level and that the player can store in their &quot;inventory&quot; which can increase their health throughout the levels&#10;* (TODO) - Complete ballista object and arrow projectile &#10;* (TODO) - Create subclasses for the player class" />
+    <MESSAGE value="Edit Progress #23:&#10;* Implemented a new worm enemy (can't attack yet due to lack of animation or take damage)&#10;* Added some new assets (most are still a WIP)&#10;* Began working on a tutorial state tho not much progress was made again due to lack of actual assets to work with&#10;Old but still relavant goals:&#10;* (TODO) - Add healthpacks or bandages or something that drop from the containers in the level and that the player can store in their &quot;inventory&quot; which can increase their health throughout the levels&#10;* (TODO) - Complete ballista object and arrow projectile &#10;* (TODO) - Complete beastiary and instructions gamestates &#10;* (TODO) - Add a 2nd set of levels and boss fight" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit Progress #23:&#10;* Implemented a new worm enemy (can't attack yet due to lack of animation or take damage)&#10;* Added some new assets (most are still a WIP)&#10;* Began working on a tutorial state tho not much progress was made again due to lack of actual assets to work with&#10;Old but still relavant goals:&#10;* (TODO) - Add healthpacks or bandages or something that drop from the containers in the level and that the player can store in their &quot;inventory&quot; which can increase their health throughout the levels&#10;* (TODO) - Complete ballista object and arrow projectile &#10;* (TODO) - Complete beastiary and instructions gamestates &#10;* (TODO) - Add a 2nd set of levels and boss fight" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

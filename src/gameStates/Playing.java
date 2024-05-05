@@ -26,6 +26,7 @@ public class Playing extends State implements Statemethods {
     private LevelCompletedOverlay levelCompletedOverlay;
     private boolean paused = false;
     private boolean playerDying = false;
+    private int difficulty;
 
     // Borders to create the illusion of movement if the player is too far right or left of the screen
     private int xLvlOffset;
@@ -38,13 +39,14 @@ public class Playing extends State implements Statemethods {
     private boolean gameOver = false;
     private boolean lvlCompleted = false;
 
-    public Playing(Game game) {
+    public Playing(Game game, int difficulty) {
         super(game);
         initClasses();
         // Initialize and create background
         backgroundImg = LoadSave.GetSpriteAtlas(LoadSave.PLAYING_BACKGROUND_IMG);
         calcLvlOffset();
         loadStartLevel();
+        this.difficulty = difficulty;
     }
 
     public void loadNextLevel() {

@@ -10,6 +10,15 @@ public class Constants {
     public static final float GRAVITY = 0.04f * Game.SCALE;
     public static final int ANIMATION_SPEED = 35;
 
+    public static class Difficulties {
+        public static final int EASY = 0;
+        public static final int HARD = 1;
+        public static final int HELL = 2;
+
+        public static final int DIFFICULTY_MULTIPLIER = 0;
+
+    }
+
     public static class Projectiles {
         public static final int CANNON_BALL = 0;
         public static final int ARROW = 1;
@@ -152,9 +161,17 @@ public class Constants {
             // Specifications for current buttons on menu
             public static final int MB_DEFAULT_WIDTH = 140;
             public static final int MB_DEFAULT_HEIGHT = 56;
-            public static final int MB_WIDTH = (int)(MB_DEFAULT_WIDTH * Game.SCALE);
+            public static final int MB_WIDTH = (int)(MB_DEFAULT_WIDTH *  Game.SCALE);
             public static final int MB_HEIGHT = (int)(MB_DEFAULT_HEIGHT * Game.SCALE);
         }
+
+        public static class OptionsButtons {
+            public static final int OB_DEFAULT_WIDTH = 114;
+            public static final int OB_DEFAULT_HEIGHT = 41;
+            public static final int OB_WIDTH = (int)(OB_DEFAULT_WIDTH * Game.SCALE + 2);
+            public static final int OB_HEIGHT = (int)(OB_DEFAULT_HEIGHT * Game.SCALE);
+        }
+
         public static class PauseButtons {
             // Specifications for each sound button (42 pixels both width and height)
             public static final int SB_DEFAULT_SIZE = 42;

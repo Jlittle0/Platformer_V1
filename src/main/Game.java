@@ -1,9 +1,13 @@
 package main;
 import gameStates.Gamestate;
+import gameStates.OptionsState;
 import gameStates.Playing;
 import gameStates.Menu;
+import ui.SoundControls;
 
 import java.awt.*;
+
+import static utilz.Constants.Difficulties.*;
 
 public class Game implements Runnable{
     // Private instance variables
@@ -12,9 +16,12 @@ public class Game implements Runnable{
     private Thread gameThread;
     private final int FPS_SET = 120;
     private final int UPS_SET = 200;
+    private int difficulty = HARD;
 
     private Playing playing;
     private Menu menu;
+    private OptionsState options;
+    private SoundControls soundControls;
 
 
     // Size of each "tile" used in the level maps
@@ -42,8 +49,11 @@ public class Game implements Runnable{
     }
 
     private void initClasses() {
+        soundControls = new SoundControls();
         menu = new Menu(this);
-        playing = new Playing(this);
+        options = new OptionsState(this);
+        playing = new Playing(this, difficulty);
+
     }
 
     private void startGameLoop() {
@@ -63,7 +73,9 @@ public class Game implements Runnable{
                 menu.update();
                 break;
             case OPTIONS:
-                // No options state yet so just defaults to closing window
+                options.update();
+                break;
+            case TUTORIAL:
             case QUIT:
             default:
                 System.exit(0);
@@ -81,6 +93,10 @@ public class Game implements Runnable{
             case MENU:
                 menu.draw(g);
                 break;
+            case OPTIONS:
+                options.draw(g);
+                break;
+            case TUTORIAL:
             default:
                 break;
         }
@@ -155,4 +171,19 @@ public class Game implements Runnable{
         return playing;
     }
 
+    public OptionsState getOptions() {
+        return options;
+    }
+
+    public SoundControls getSoundControls() {
+        return soundControls;
+    }
+
+    public void setDifficulty(int difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public int getDifficulty() {
+        return difficulty;
+    }
 }

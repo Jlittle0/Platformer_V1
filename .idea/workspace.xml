@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Edit Progress #25:&#10;* Added highlights to options menu to represent current difficulty selected.">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Edit Progress #25:&#10;* Tested tutorial class and added back button&#10;(TODO) - Import the actual background for the tutorial and fix button position">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/V1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/V1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameStates/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameStates/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameStates/Tutorial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameStates/Tutorial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilz/LoadSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/LoadSave.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -311,7 +306,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714950802293</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Edit Progress #25:&#10;* Tested tutorial class and added back button&#10;(TODO) - Import the actual background for the tutorial and fix button position">
+      <option name="closed" value="true" />
+      <created>1714951751214</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1714951751214</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -326,7 +329,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Ep 7 - Complete" />
     <MESSAGE value="Ep 8 - Complete" />
     <MESSAGE value="Ep 9 - Complete&#10;&#10;*Creating hitboxes and checking for collision" />
     <MESSAGE value="Ep 10 - Complete&#10;&#10;*Fixing character floating 1 pixel above ground&#10;*Added animations for falling and jumping&#10;* Added gravity" />
@@ -351,7 +353,8 @@
     <MESSAGE value="Edit Progress #23:&#10;* Implemented a new worm enemy (can't attack yet due to lack of animation or take damage)&#10;* Added some new assets (most are still a WIP)&#10;* Began working on a tutorial state tho not much progress was made again due to lack of actual assets to work with&#10;Old but still relavant goals:&#10;* (TODO) - Add healthpacks or bandages or something that drop from the containers in the level and that the player can store in their &quot;inventory&quot; which can increase their health throughout the levels&#10;* (TODO) - Complete ballista object and arrow projectile &#10;* (TODO) - Complete beastiary and instructions gamestates &#10;* (TODO) - Add a 2nd set of levels and boss fight" />
     <MESSAGE value="Edit Progress #24:&#10;* Began working on the option menu and did most of the work." />
     <MESSAGE value="Edit Progress #25:&#10;* Added highlights to options menu to represent current difficulty selected." />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit Progress #25:&#10;* Added highlights to options menu to represent current difficulty selected." />
+    <MESSAGE value="Edit Progress #25:&#10;* Tested tutorial class and added back button&#10;(TODO) - Import the actual background for the tutorial and fix button position" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit Progress #25:&#10;* Tested tutorial class and added back button&#10;(TODO) - Import the actual background for the tutorial and fix button position" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -41,6 +41,7 @@ public class LoadSave {
     public static final String OPTIONS_BACKGROUND = "options_background.png";
     public static final String OPTIONS_BUTTONS = "options_buttons.png";
     public static final String HIGHLIGHTS = "highlights.png";
+    public static final String TUTORIAL = "options_background.png";
 
     public static BufferedImage GetSpriteAtlas(String fileName) {
         // Method idea taken from stackOverflow (forgot the username but I'll find it and put

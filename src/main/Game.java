@@ -1,7 +1,5 @@
 package main;
-import gameStates.Gamestate;
-import gameStates.OptionsState;
-import gameStates.Playing;
+import gameStates.*;
 import gameStates.Menu;
 import ui.SoundControls;
 
@@ -21,6 +19,7 @@ public class Game implements Runnable{
     private Playing playing;
     private Menu menu;
     private OptionsState options;
+    private Tutorial tutorial;
     private SoundControls soundControls;
 
 
@@ -53,6 +52,7 @@ public class Game implements Runnable{
         menu = new Menu(this);
         options = new OptionsState(this);
         playing = new Playing(this, difficulty);
+        tutorial = new Tutorial(this);
 
     }
 
@@ -76,6 +76,8 @@ public class Game implements Runnable{
                 options.update();
                 break;
             case TUTORIAL:
+                tutorial.update();
+                break;
             case QUIT:
             default:
                 System.exit(0);
@@ -97,6 +99,8 @@ public class Game implements Runnable{
                 options.draw(g);
                 break;
             case TUTORIAL:
+                tutorial.draw(g);
+                break;
             default:
                 break;
         }
@@ -173,6 +177,10 @@ public class Game implements Runnable{
 
     public OptionsState getOptions() {
         return options;
+    }
+
+    public Tutorial getTutorial() {
+        return tutorial;
     }
 
     public SoundControls getSoundControls() {

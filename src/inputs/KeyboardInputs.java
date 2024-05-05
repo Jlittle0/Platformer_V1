@@ -30,6 +30,9 @@ public class KeyboardInputs implements KeyListener {
             case OPTIONS:
                 gamePanel.getGame().getOptions().keyPressed(e);
                 break;
+            case TUTORIAL:
+                gamePanel.getGame().getTutorial().keyPressed(e);
+                break;
             default:
                 break;
         }

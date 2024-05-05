@@ -30,8 +30,8 @@ public class Menu extends State implements Statemethods {
         // Manually setting all the buttons
         buttons[0] = new MenuButton(Game.GAME_WIDTH / 32 * 12, (int)(250 * Game.SCALE), 0, Gamestate.PLAYING);
         buttons[1] = new MenuButton(Game.GAME_WIDTH / 32 * 18, (int)(250 * Game.SCALE), 1, Gamestate.OPTIONS);
-        buttons[2] = new MenuButton(Game.GAME_WIDTH / 32 * 12, (int)(320 * Game.SCALE), 2, Gamestate.TUTORIAL);
-        buttons[3] = new MenuButton(Game.GAME_WIDTH / 32 * 18, (int)(320 * Game.SCALE), 3, Gamestate.QUIT);
+        buttons[2] = new MenuButton(Game.GAME_WIDTH / 32 * 12, (int)(320 * Game.SCALE), 3, Gamestate.TUTORIAL);
+        buttons[3] = new MenuButton(Game.GAME_WIDTH / 32 * 18, (int)(320 * Game.SCALE), 2, Gamestate.QUIT);
     }
 
     @Override

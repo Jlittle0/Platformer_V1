@@ -23,7 +23,7 @@ public class Tutorial extends State implements Statemethods {
     }
 
     private void loadButtons() {
-        buttons[0] = new OptionsButton((int)(100 * Game.SCALE), (int)(354 * Game.SCALE), 0, Gamestate.MENU);
+        buttons[0] = new OptionsButton((int)(128 * Game.SCALE), (int)(375 * Game.SCALE), 0, Gamestate.MENU);
     }
 
     @Override

@@ -16,6 +16,8 @@ import java.awt.event.MouseEvent;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 
+import static utilz.Constants.PlayerConstants.*;
+
 public class Playing extends State implements Statemethods {
     private Player player;
     private LevelHandler levelHandler;
@@ -26,12 +28,16 @@ public class Playing extends State implements Statemethods {
     private LevelCompletedOverlay levelCompletedOverlay;
     private boolean paused = false;
     private boolean playerDying = false;
+    private boolean firstClick;
     private int difficulty;
+    private int lastAttack;
 
     // Borders to create the illusion of movement if the player is too far right or left of the screen
     private int xLvlOffset;
     private int leftBorder = (int)(0.2 * Game.GAME_WIDTH);
     private int rightBorder = (int)(0.8 * Game.GAME_WIDTH);
+
+    private long lastCheck;
 
     private int maxLvlOffsetX;
     private BufferedImage backgroundImg;
@@ -69,7 +75,7 @@ public class Playing extends State implements Statemethods {
         levelHandler = new LevelHandler(game);
         enemyManager = new EnemyManager(this);
         objectManager = new ObjectManager(this);
-        player = new Player(200, 200, (int)(64 * Game.SCALE), (int)(40 * Game.SCALE), this);
+        player = new Player(200, 200, (int)(91 * Game.SCALE * PLAYER_SCALE), (int)(19 * Game.SCALE * PLAYER_SCALE), this);
         player.loadLvlData(levelHandler.getCurrentLevel().getLevelData());
         player.setSpawn(levelHandler.getCurrentLevel().getPlayerSpawn());
         pauseOverlay = new PauseOverlay(this);

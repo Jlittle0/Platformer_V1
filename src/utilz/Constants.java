@@ -205,30 +205,41 @@ public class Constants {
     }
 
     public static class PlayerConstants {
+        public static final float PLAYER_SCALE = 1.5f;
+
         // Player States
         public static final int IDLE = 0;
         public static final int RUNNING = 1;
         public static final int JUMP = 2;
         public static final int FALLING = 3;
-        public static final int ATTACK = 4;
-        public static final int HIT = 5;
-        public static final int DEAD = 6;
+        public static final int LANDING = 4;
+        public static final int ATTACK = 5;
+        public static final int ATTACK_2 = 6;
+        public static final int ATTACK_3 = 7;
+        public static final int ATTACK_4 = 8;
+        public static final int HIT = 9;
+        public static final int DEAD = 10;
 
         public static int GetSpriteAmount(int playerAction) {
             // Returns the number of parts for each action's animation)
             switch (playerAction) {
+                case ATTACK_3:
+                    return 10;
                 case DEAD:
-                    return 8;
                 case RUNNING:
-                    return 6;
-                case IDLE:
+                    return 8;
+                case ATTACK_2:
+                case ATTACK_4:
                     return 5;
+                case IDLE:
+                    return 9;
                 case HIT:
-                    return 4;
+                    return 2;
                 case JUMP:
                 case ATTACK:
-                    return 3;
                 case FALLING:
+                case LANDING:
+                    return 4;
                 default:
                     return 1;
             }

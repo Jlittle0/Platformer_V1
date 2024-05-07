@@ -10,7 +10,7 @@ public abstract class Entity {
     protected int width, height;
     protected Rectangle2D.Float hitbox;
     protected int aniTick, aniIndex;
-    protected int state;
+    protected int state, previousState;
     protected float airSpeed;
     protected boolean inAir = false;
     protected int maxHealth;
@@ -37,7 +37,10 @@ public abstract class Entity {
     }
 
     protected void initHitbox(int width, int height) {
-        hitbox = new Rectangle2D.Float(x, y, (int)(width * Game.SCALE), (int)(height * Game.SCALE));
+        if (width == 13 && height == 19)
+            hitbox = new Rectangle2D.Float(x, y, (int)(width * Game.SCALE * 1.5), (int)(height * Game.SCALE * 1.5));
+        else
+            hitbox = new Rectangle2D.Float(x, y, (int)(width * Game.SCALE), (int)(height * Game.SCALE));
     }
 
 //    protected void updateHitbox() {

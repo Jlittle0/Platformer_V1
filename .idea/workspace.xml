@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Edit Progress #26:&#10;* Tested tutorial class and added back button&#10;(TODO) - Import the actual background for the tutorial and fix button position&#10;*Fixed # of edit">
-      <change afterPath="$PROJECT_DIR$/resources/player_atlas_new.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/tutorial_background.png" afterDir="false" />
+    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Edit Progress #27:&#10;* Save to reload to without new character implementation.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameStates/Tutorial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameStates/Tutorial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameStates/Playing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameStates/Playing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilz/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilz/LoadSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/LoadSave.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -325,7 +326,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714951860982</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Edit Progress #27:&#10;* Save to reload to without new character implementation.">
+      <option name="closed" value="true" />
+      <created>1715022174230</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1715022174230</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -340,7 +349,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Ep 9 - Complete&#10;&#10;*Creating hitboxes and checking for collision" />
     <MESSAGE value="Ep 10 - Complete&#10;&#10;*Fixing character floating 1 pixel above ground&#10;*Added animations for falling and jumping&#10;* Added gravity" />
     <MESSAGE value="Ep 11 - Complete&#10;&#10;*Added gamestates to allow user to switch between menu and playing etc." />
     <MESSAGE value="#12 &#10;&#10;*Added Menu Buttons &amp; the option to exit the game etc.&#10;*Fixed some bugs related to playermovement speed being independent from GameScale and the hitbox of the player being floats instead of ints creating problems when gamescale wasn't an integer." />
@@ -365,7 +373,8 @@
     <MESSAGE value="Edit Progress #25:&#10;* Added highlights to options menu to represent current difficulty selected." />
     <MESSAGE value="Edit Progress #25:&#10;* Tested tutorial class and added back button&#10;(TODO) - Import the actual background for the tutorial and fix button position" />
     <MESSAGE value="Edit Progress #26:&#10;* Tested tutorial class and added back button&#10;(TODO) - Import the actual background for the tutorial and fix button position&#10;*Fixed # of edit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit Progress #26:&#10;* Tested tutorial class and added back button&#10;(TODO) - Import the actual background for the tutorial and fix button position&#10;*Fixed # of edit" />
+    <MESSAGE value="Edit Progress #27:&#10;* Save to reload to without new character implementation." />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit Progress #27:&#10;* Save to reload to without new character implementation." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

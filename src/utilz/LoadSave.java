@@ -19,7 +19,7 @@ import static utilz.Constants.EnemyConstants.CRAB;
 public class LoadSave {
 
     // All the images used throughout the game as strings to easily call later
-    public static final String PLAYER_ATLAS = "player_sprites.png";
+    public static final String PLAYER_ATLAS = "player_atlas_new.png";
     // Change the .png file above to character_atlas in the future.
     public static final String LEVEL_ATLAS = "LevelSprites.png";
     public static final String MENU_BUTTONS= "menu_buttons.png";

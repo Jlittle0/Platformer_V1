@@ -17,11 +17,13 @@ public class Player extends Entity {
 
     private BufferedImage[][] animations;
     private BufferedImage[][] test;
-    private boolean moving = false, attacking = false;
+    private boolean moving = false, attacking = false, landing = false;
     private boolean left, right, jump;
     private int[][] lvlData;
-    private float xDrawOffset = 21 * Game.SCALE;
-    private float yDrawOffset = 4 * Game.SCALE;
+    private float xDrawOffset = 7 * Game.SCALE * PLAYER_SCALE;
+    private float yDrawOffset = 0 * Game.SCALE;
+    private int previousAttack, currentAttack;
+    private long lastCheck = System.currentTimeMillis();
 
     // Jumping and Gravity
     private float jumpSpeed = -2.25f * Game.SCALE;
@@ -68,7 +70,7 @@ public class Player extends Entity {
     public Player(float x, float y, int width, int height, Playing playing) {
         super(x, y, width, height);
         loadAnimations();
-        initHitbox(20, 27);
+        initHitbox(13, 19);
         initAttackBox();
         this.maxHealth = 100;
         this.currentHealth = maxHealth;
@@ -86,7 +88,7 @@ public class Player extends Entity {
 
     private void initAttackBox() {
         // Initializes the attack box where the player's attacks actually have an effect
-        attackBox = new Rectangle2D.Float(x, y, (int)(20 * Game.SCALE), (int)(20 * Game.SCALE));
+        attackBox = new Rectangle2D.Float(x, y, (int)(30 * Game.SCALE), (int)(15 * Game.SCALE));
     }
 
     public void update() {
@@ -105,6 +107,7 @@ public class Player extends Entity {
             return;
         }
 
+        updateOffsets();
         updateAttackBox();
         updatePos();
         if (moving) {
@@ -115,6 +118,13 @@ public class Player extends Entity {
             checkAttack();
         updateAnimationTick();
         setAnimation();
+    }
+
+    private void updateOffsets() {
+        if (left && !right)
+                xDrawOffset = 70 * Game.SCALE * PLAYER_SCALE;
+        else if (right && !left)
+                xDrawOffset = 7 * Game.SCALE * PLAYER_SCALE;
     }
 
     private void checkTrapsTouched() {
@@ -134,9 +144,9 @@ public class Player extends Entity {
     private void updateAttackBox() {
         // Changes the position of the attackbox based on the direction the player is facing
         if (right) {
-            attackBox.x = hitbox.x + hitbox.width + (int)(Game.SCALE * 10);
+            attackBox.x = hitbox.x + hitbox.width + (int)(Game.SCALE * 0);
         } else if (left) {
-            attackBox.x = hitbox.x - hitbox.width - (int)(Game.SCALE * 10);
+            attackBox.x = hitbox.x - hitbox.width - (int)(Game.SCALE * 5);
         }
         attackBox.y = hitbox.y + (int)(Game.SCALE * 10);
 
@@ -149,11 +159,6 @@ public class Player extends Entity {
 
     public void render(Graphics g, int lvlOffset) {
         g.drawImage(animations[state][aniIndex], (int)(hitbox.x - xDrawOffset) - lvlOffset + flipX, (int)(hitbox.y - yDrawOffset), width * flipW, height, null);
-//        if (state == IDLE)
-//            g.drawImage(test[1][aniIndex], 200, 425, (int)(71 * Game.SCALE * 1.5), (int)(52 * Game.SCALE * 1.5), null);
-        // Shows hitbox and attackbox for testing purposes
-//        drawHitbox(g, lvlOffset);
-//        drawAttackBox(g, lvlOffset);
         drawUI(g);
     }
 
@@ -184,24 +189,23 @@ public class Player extends Entity {
     private void setAnimation() {
         // Sets the current animation for the player based on its current action.
         int startAni = state;
-
-        if (moving)
+        if (moving) {
             state = RUNNING;
-        else
-            state = IDLE;
+        } else {
+                state = IDLE;
+        }
         if (inAir) {
-            if (airSpeed < 0)
+            if (airSpeed < 0) {
                 state = JUMP;
-            else
+            } else {
                 state = FALLING;
+            }
         }
         if (attacking) {
-            state = ATTACK;
-            if (startAni != ATTACK) {
-                aniIndex = 1;
-                aniTick = 0;
-                return;
-            }
+            state = getCurrentAttack();
+        }
+        if (landing) {
+            state = LANDING;
         }
         if (startAni != state)
             resetAniTick();
@@ -219,18 +223,21 @@ public class Player extends Entity {
         if (jump)
             jump();
         // If the player isn't moving, return early
-        if (!inAir)
-            if ((!left && !right) || (right && left))
+        if (!inAir) {
+            if ((!left && !right) || (right && left)) {
+                if (landing == true && aniIndex == 3 && aniTick == 10)
+                    landing = false;
                 return;
-
+            }
+        }
         float xSpeed = 0;
 
-        if (left) {
+        if (left && !right) {
             xSpeed -= walkSpeed;
             flipX = width;
             flipW = -1;
         }
-        if (right) {
+        if (right && !left) {
             xSpeed += walkSpeed;
             flipX = 0;
             flipW = 1;
@@ -241,6 +248,7 @@ public class Player extends Entity {
             if (!IsEntityOnFloor(hitbox, lvlData)) {
                 inAir = true;
             }
+            landing = false;
         }
 
         if (inAir) {
@@ -250,14 +258,19 @@ public class Player extends Entity {
                 hitbox.y += airSpeed;
                 airSpeed += GRAVITY;
                 updateXPos(xSpeed);
+                landing = false;
             } else {
                 // If they can't, reset their positon to the closest avaiable spot next to solid
                 hitbox.y = GetEntityYPosUnderRoofOrAboveFloor(hitbox, airSpeed);
-                if (airSpeed > 0)
+                if (airSpeed > 0) {
                     resetInAir();
-                else
+                    landing = true;
+                }
+                else {
                     // if the player is hitting something above them, set new speed accordingly
                     airSpeed = fallSpeedAfterCollision;
+                    landing = false;
+                }
                 updateXPos(xSpeed);
             }
         } else
@@ -310,10 +323,10 @@ public class Player extends Entity {
     private void loadAnimations() {
         // Loads all the player animations from the atlas into a 2D array of images
             BufferedImage img = LoadSave.GetSpriteAtlas(LoadSave.PLAYER_ATLAS);
-            animations = new BufferedImage[7][8];
+            animations = new BufferedImage[11][10];
             for (int j = 0; j < animations.length; j++)
                 for (int i = 0; i < animations[j].length; i++)
-                    animations[j][i] = img.getSubimage(i * 64, j * 40, 64, 40);
+                    animations[j][i] = img.getSubimage(i * 91, j * 19, 91, 19);
             statusBarImg = LoadSave.GetSpriteAtlas(LoadSave.STATUS_BAR);
             BufferedImage img2 = LoadSave.GetSpriteAtlas(LoadSave.CHARACTER_TEST);
             test = new BufferedImage[2][6];
@@ -337,6 +350,15 @@ public class Player extends Entity {
 
     public void setAttacking(boolean attacking) {
             this.attacking = attacking;
+            if (previousAttack == ATTACK && (System.currentTimeMillis() - lastCheck <= 1000)) {
+                previousAttack = ATTACK_2;
+                lastCheck = System.currentTimeMillis();
+                currentAttack = ATTACK_2;
+            } else {
+                lastCheck = System.currentTimeMillis();
+                previousAttack = ATTACK;
+                currentAttack = ATTACK;
+            }
     }
 
     public boolean isLeft() {
@@ -364,6 +386,7 @@ public class Player extends Entity {
         inAir = false;
         attacking = false;
         moving = false;
+        landing = false;
         state = IDLE;
         currentHealth = maxHealth;
 
@@ -376,5 +399,10 @@ public class Player extends Entity {
     public int getTileY() {
         return tileY;
     }
+
+    public int getCurrentAttack() {
+        return currentAttack;
+    }
+
 
 }

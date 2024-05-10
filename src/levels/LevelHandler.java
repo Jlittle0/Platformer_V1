@@ -25,8 +25,7 @@ public class LevelHandler {
         lvlIndex++;
         if (lvlIndex >= levels.size()) {
                 lvlIndex = 0;
-                System.out.println("Completed all levels - test");
-                Gamestate.state = Gamestate.MENU;
+                game.getPlaying().setGameCompleted(true);
         }
 
         Level newLevel = levels.get(lvlIndex);

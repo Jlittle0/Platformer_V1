@@ -9,19 +9,18 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 
-import static utilz.Constants.PlayerConstants.GetSpriteAmount;
-
-public class GameOverOverlay {
+public class GameCompletedOverlay {
     private Playing playing;
-    private BufferedImage gameOverImg;
+    private BufferedImage gameCompletedImg;
 
-    public GameOverOverlay(Playing playing) {
+    public GameCompletedOverlay(Playing playing) {
         this.playing = playing;
         loadImgs();
     }
 
     private void loadImgs() {
-        gameOverImg = LoadSave.GetSpriteAtlas(LoadSave.GAME_OVER);
+        // Switch to gameCompleted
+        gameCompletedImg = LoadSave.GetSpriteAtlas(LoadSave.GAME_WON);
     }
 
     public void draw(Graphics g) {
@@ -31,8 +30,9 @@ public class GameOverOverlay {
         g.fillRect(0, 0, Game.GAME_WIDTH, Game.GAME_HEIGHT);
 
         g.setColor(Color.WHITE);
-        g.drawImage(gameOverImg, (int)(Game.GAME_WIDTH / 2 - 203 * Game.SCALE), (int)(150 * Game.SCALE), (int)(403 * Game.SCALE), (int)(54 * Game.SCALE), null);
-        g.drawString("Press esc to enter Main Menu!", Game.GAME_WIDTH / 2 - 100, (int)(250 * Game.SCALE));
+        g.drawImage(gameCompletedImg, (int)(Game.GAME_WIDTH / 2 - 284 * Game.SCALE), (int)(150 * Game.SCALE), (int)(568 * Game.SCALE), (int)(48 * Game.SCALE), null);
+        g.drawString("Congratulations! You beat the game. To replay the game or return to the main menu, please press esc.", Game.GAME_WIDTH / 2 - 300, (int)(250 * Game.SCALE));
+        g.drawString("Press esc to enter Main Menu!", Game.GAME_WIDTH / 2 - 100, (int)(350 * Game.SCALE));
     }
 
     public void keyPressed(KeyEvent e) {

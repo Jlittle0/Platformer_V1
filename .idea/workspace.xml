@@ -4,12 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Edit Progress #27:&#10;* Save to reload to without new character implementation.">
+    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Edit Progress #28:&#10;* Brought new character into the game and implemented most of the new possible states including a second combo attack.">
+      <change afterPath="$PROJECT_DIR$/resources/congratulations.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/gameover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/tutorial_platform_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/GameCompletedOverlay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lvls/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lvls/2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lvls/3.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lvls/3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/options_background.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/options_background.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/tutorial_background.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/tutorial_background.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Crab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Crab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/EnemyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/EnemyManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Worm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Worm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameStates/OptionsState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameStates/OptionsState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gameStates/Playing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameStates/Playing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameStates/Tutorial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameStates/Tutorial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/levels/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/levels/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/levels/LevelHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/levels/LevelHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/ObjectManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/ObjectManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/GameOverOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/GameOverOverlay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilz/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilz/HelperMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/HelperMethods.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilz/LoadSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/LoadSave.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -334,7 +354,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715022174230</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Edit Progress #28:&#10;* Brought new character into the game and implemented most of the new possible states including a second combo attack.">
+      <option name="closed" value="true" />
+      <created>1715044885758</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1715044885759</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -349,7 +377,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Ep 10 - Complete&#10;&#10;*Fixing character floating 1 pixel above ground&#10;*Added animations for falling and jumping&#10;* Added gravity" />
     <MESSAGE value="Ep 11 - Complete&#10;&#10;*Added gamestates to allow user to switch between menu and playing etc." />
     <MESSAGE value="#12 &#10;&#10;*Added Menu Buttons &amp; the option to exit the game etc.&#10;*Fixed some bugs related to playermovement speed being independent from GameScale and the hitbox of the player being floats instead of ints creating problems when gamescale wasn't an integer." />
     <MESSAGE value="Edit Progress 13 &#10;&#10;*Added pause menu into the game and also the button associated with them&#10;*Working on adding volume slider to affect sound effects and music" />
@@ -374,7 +401,8 @@
     <MESSAGE value="Edit Progress #25:&#10;* Tested tutorial class and added back button&#10;(TODO) - Import the actual background for the tutorial and fix button position" />
     <MESSAGE value="Edit Progress #26:&#10;* Tested tutorial class and added back button&#10;(TODO) - Import the actual background for the tutorial and fix button position&#10;*Fixed # of edit" />
     <MESSAGE value="Edit Progress #27:&#10;* Save to reload to without new character implementation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit Progress #27:&#10;* Save to reload to without new character implementation." />
+    <MESSAGE value="Edit Progress #28:&#10;* Brought new character into the game and implemented most of the new possible states including a second combo attack." />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit Progress #28:&#10;* Brought new character into the game and implemented most of the new possible states including a second combo attack." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

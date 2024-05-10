@@ -56,7 +56,7 @@ public class OptionsState extends State implements Statemethods {
             ob.draw(g);
         }
         drawHighlights(g);
-        soundControls.draw(g);
+//        soundControls.draw(g);
     }
 
     private void drawHighlights(Graphics g) {

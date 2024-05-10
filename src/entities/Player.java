@@ -133,7 +133,7 @@ public class Player extends Entity {
 
     private void checkAttack() {
         // Checks whether or not an attack has already started and if so return early
-        if (attackChecked || aniIndex != 1)
+        if (attackChecked || (aniIndex != 0 && aniTick != 10))
             return;
         attackChecked = true;
         // Eventually checks of an enemy hitbox overlaps with the player's attack and deals damage
@@ -201,11 +201,11 @@ public class Player extends Entity {
                 state = FALLING;
             }
         }
-        if (attacking) {
-            state = getCurrentAttack();
-        }
         if (landing) {
             state = LANDING;
+        }
+        if (attacking) {
+            state = getCurrentAttack();
         }
         if (startAni != state)
             resetAniTick();
@@ -354,6 +354,7 @@ public class Player extends Entity {
                 previousAttack = ATTACK_2;
                 lastCheck = System.currentTimeMillis();
                 currentAttack = ATTACK_2;
+                attackChecked = false;
             } else {
                 lastCheck = System.currentTimeMillis();
                 previousAttack = ATTACK;
@@ -402,6 +403,14 @@ public class Player extends Entity {
 
     public int getCurrentAttack() {
         return currentAttack;
+    }
+
+    public void setAttackChecked(boolean attackChecked) {
+        this.attackChecked = attackChecked;
+    }
+
+    public Playing getPlaying() {
+        return playing;
     }
 
 

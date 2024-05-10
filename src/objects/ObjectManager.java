@@ -106,7 +106,7 @@ public class ObjectManager {
                 } else if (IsProjectileHittingLevel(p, lvlData)) {
                     p.setActive(false);
                 }
-        }
+            }
 
 
     }

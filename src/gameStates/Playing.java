@@ -5,6 +5,7 @@ import entities.Player;
 import levels.LevelHandler;
 import main.Game;
 import objects.ObjectManager;
+import ui.GameCompletedOverlay;
 import ui.GameOverOverlay;
 import ui.LevelCompletedOverlay;
 import ui.PauseOverlay;
@@ -26,6 +27,7 @@ public class Playing extends State implements Statemethods {
     private PauseOverlay pauseOverlay;
     private GameOverOverlay gameOverOverlay;
     private LevelCompletedOverlay levelCompletedOverlay;
+    private GameCompletedOverlay gameCompletedOverlay;
     private boolean paused = false;
     private boolean playerDying = false;
     private boolean firstClick;
@@ -44,15 +46,16 @@ public class Playing extends State implements Statemethods {
 
     private boolean gameOver = false;
     private boolean lvlCompleted = false;
+    private boolean gameCompleted = false;
 
-    public Playing(Game game, int difficulty) {
+    public Playing(Game game) {
         super(game);
+        this.difficulty = game.getDifficulty();
         initClasses();
         // Initialize and create background
         backgroundImg = LoadSave.GetSpriteAtlas(LoadSave.PLAYING_BACKGROUND_IMG);
         calcLvlOffset();
         loadStartLevel();
-        this.difficulty = difficulty;
     }
 
     public void loadNextLevel() {
@@ -80,6 +83,7 @@ public class Playing extends State implements Statemethods {
         player.setSpawn(levelHandler.getCurrentLevel().getPlayerSpawn());
         pauseOverlay = new PauseOverlay(this);
         gameOverOverlay = new GameOverOverlay(this);
+        gameCompletedOverlay = new GameCompletedOverlay(this);
         levelCompletedOverlay = new LevelCompletedOverlay(this);
     }
 
@@ -102,6 +106,7 @@ public class Playing extends State implements Statemethods {
             enemyManager.update(levelHandler.getCurrentLevel().getLevelData(), player);
             checkCloseToBorder();
         }
+        difficulty = game.getDifficulty();
     }
 
     private void checkCloseToBorder() {
@@ -144,6 +149,8 @@ public class Playing extends State implements Statemethods {
             gameOverOverlay.draw(g);
         else if (lvlCompleted)
             levelCompletedOverlay.draw(g);
+        else if (gameCompleted)
+            gameCompletedOverlay.draw(g);
     }
 
     public void resetAll() {
@@ -181,6 +188,7 @@ public class Playing extends State implements Statemethods {
         if (!gameOver)
             if (e.getButton() == MouseEvent.BUTTON1) {
                 player.setAttacking(true);
+                player.setAttackChecked(false);
             }
     }
 
@@ -230,6 +238,8 @@ public class Playing extends State implements Statemethods {
         // movement of the player then space to jump and esc to pause the game. Standard.
         if (gameOver)
             gameOverOverlay.keyPressed(e);
+        else if (gameCompleted)
+            gameCompletedOverlay.keyPressed(e);
         else
             switch(e.getKeyCode()) {
                 case KeyEvent.VK_A:
@@ -293,5 +303,13 @@ public class Playing extends State implements Statemethods {
 
     public void setPlayerDying(boolean playerDying) {
         this.playerDying = playerDying;
+    }
+
+    public int getDifficulty() {
+        return difficulty;
+    }
+
+    public void setGameCompleted(boolean gameCompleted) {
+        this.gameCompleted = gameCompleted;
     }
 }

@@ -11,9 +11,9 @@ public class Constants {
     public static final int ANIMATION_SPEED = 35;
 
     public static class Difficulties {
-        public static final int EASY = 0;
-        public static final int HARD = 1;
-        public static final int HELL = 2;
+        public static final int EASY = 1;
+        public static final int HARD = 3;
+        public static final int HELL = 5;
 
         public static final int DIFFICULTY_MULTIPLIER = 0;
 

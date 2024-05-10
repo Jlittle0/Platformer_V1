@@ -1,5 +1,6 @@
 package entities;
 
+import gameStates.Playing;
 import main.Game;
 
 import java.awt.geom.Rectangle2D;
@@ -120,7 +121,7 @@ public abstract class Enemy extends Entity {
 
     protected void checkEnemyHit(Rectangle2D.Float attackBox, Player player) {
         if (attackBox.intersects(player.hitbox))
-            player.changeHealth(-GetEnemyDamage(enemyType));
+            player.changeHealth(-GetEnemyDamage(enemyType) * player.getPlaying().getDifficulty());
         attackChecked = true;
     }
 

@@ -71,9 +71,15 @@ public class EnemyManager {
         for (Crab c: crabs)
             if (c.isActive())
                 if (attackBox.intersects(c.getHitbox())) {
-                    c.hurt(10);
+                    c.hurt((int)(10 / playing.getDifficulty()));
                     return;
                 }
+//        for (Worm w : worms)
+//            if (w.isActive())
+//                if (attackBox.intersects(w.getHitbox())) {
+//                    w.hurt(10);
+//                    return;
+//                }
     }
 
     private void loadEnemyImgs() {

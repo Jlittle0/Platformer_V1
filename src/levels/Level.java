@@ -2,6 +2,7 @@ package levels;
 
 import entities.Crab;
 import entities.Worm;
+import gameStates.Playing;
 import main.Game;
 import objects.Cannon;
 import objects.Spike;

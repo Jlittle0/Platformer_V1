@@ -14,7 +14,7 @@ public class Game implements Runnable{
     private Thread gameThread;
     private final int FPS_SET = 120;
     private final int UPS_SET = 200;
-    private int difficulty = HARD;
+    private int difficulty = EASY;
 
     private Playing playing;
     private Menu menu;
@@ -51,7 +51,7 @@ public class Game implements Runnable{
         soundControls = new SoundControls();
         menu = new Menu(this);
         options = new OptionsState(this);
-        playing = new Playing(this, difficulty);
+        playing = new Playing(this);
         tutorial = new Tutorial(this);
 
     }

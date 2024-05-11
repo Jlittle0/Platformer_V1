@@ -1,5 +1,11 @@
 package main;
 
+/*
+Project written by Josh Little @ Menlo School in CS2
+
+Not sure if this is the place to put this but I remembered that I keep forgetting to put this
+ */
+
 public class MainClass {
 
     public static void main(String[] args) {
@@ -8,7 +14,4 @@ public class MainClass {
         // from game and allows me to have a testable space isolated from the actual game.
         // Not intended for final project but if I ever continue working on this for fun
     }
-
-    // Note: Currently a large portion of the assets were take from a platformer pack found
-    // on google and will be replaced in the future once I have my own ready.
 }

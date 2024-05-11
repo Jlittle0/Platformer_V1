@@ -66,6 +66,7 @@ public abstract class Enemy extends Entity {
     }
 
     protected void updateInAir(int[][] lvlData) {
+        // Essentially just movement but in air which has more checks and nuiances
         if (CanMoveHere(hitbox.x, hitbox.y + airSpeed, hitbox.width, hitbox.height, lvlData)) {
             hitbox.y += airSpeed;
             airSpeed += GRAVITY;
@@ -79,6 +80,7 @@ public abstract class Enemy extends Entity {
     }
 
     protected void move(int[][] lvlData) {
+        // Moves the enemy
         float xSpeed = 0;
         if (walkDir == LEFT)
             xSpeed = -walkSpeed;
@@ -94,6 +96,7 @@ public abstract class Enemy extends Entity {
     }
 
     protected void turnTowardsPlayer(Player player) {
+        // Changes the direction of the enemy to face the player
         if (player.hitbox.x > hitbox.x) {
             walkDir = RIGHT;
         }
@@ -102,6 +105,8 @@ public abstract class Enemy extends Entity {
     }
 
     protected boolean canSeePlayer(int[][] lvlData, Player player) {
+        // Checks whether or not there's an object obstructing enemies line of vision to the player
+        // which would prevent them from following the player.
         int playerTileY = (int)(player.getHitbox().y / Game.TILES_SIZE);
         if (playerTileY == tileY)
             if (isPlayerInRange(player)) {
@@ -113,23 +118,27 @@ public abstract class Enemy extends Entity {
 
     // Viewing Range
     protected boolean isPlayerInRange(Player player) {
+        // Checks if they player is in range for viewing and tracking the player
         int absValue =(int)Math.abs(player.hitbox.x - hitbox.x);
         return absValue <= attackDistance * 5;
     }
 
     // Attacking Range
     protected boolean isPlayerInAttackRange(Player player) {
+        // Checks if the player is within the set attack range for each enemy
         int absValue =(int)Math.abs(player.hitbox.x - hitbox.x);
         return absValue <= attackDistance;
     }
 
     protected void newState(int state) {
+        // Applies a new state to the enemy
         this.state = state;
         aniTick = 0;
         aniIndex = 0;
     }
 
     public void hurt(int amount) {
+        // Hurts the enemy to simulate taking damage
         currentHealth -= amount;
         if (currentHealth <= 0) {
             currentHealth = 0;
@@ -159,12 +168,18 @@ public abstract class Enemy extends Entity {
                 if (aniIndex >= GetSpriteAmount(enemyType, state)) {
                     aniIndex = 0;
                     switch (state) {
-                        case ATTACK, HIT -> state = IDLE;
-                        case DEAD -> active = false;
+                        case ATTACK:
+                        case HIT:
+                            state = IDLE;
+                            break;
+                        case DEAD:
+                            active = false;
                     }
                 }
             }
         }
+        // This is a massive waste but I wanted to make sure boss worked and the states didn't
+        // allign in terms of the order of their sprite atlas' and I didn't want to spend time fixing
         else {
             aniTick++;
             if (aniTick >= ANIMATION_SPEED) {

@@ -9,7 +9,7 @@ public class BestiaryOverlay {
     private Playing playing;
     private BufferedImage backgroundImg;
     private int bgX, bgY, bgWidth, bgHeight;
-    // Add eventually
+    // Add eventually (never did this sadly)
 
 
 }

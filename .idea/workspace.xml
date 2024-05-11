@@ -4,20 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Edit Progress #29:&#10;* Added tutorial and worked on basic function">
-      <change afterPath="$PROJECT_DIR$/resources/lvls/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/shocker_atlas.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/Shocker.java" afterDir="false" />
+    <list default="true" id="c94c5723-c31e-4cd3-980d-4de5faa6a4aa" name="Changes" comment="Edit Progress #30:&#10;* Big 30! Made a janky boss that was meant to just be a regular enemy and enlarged it. A lot of the code isn't very good because I was just trying to do this as quickly as possible so that it would actually be in the game for this final submission.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lvls/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lvls/1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Crab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Crab.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/EnemyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/EnemyManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/levels/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/levels/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/levels/LevelHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/levels/LevelHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/MenuButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/MenuButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MainClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/BestiaryOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/BestiaryOverlay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilz/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilz/HelperMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/HelperMethods.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilz/LoadSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/LoadSave.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -358,7 +351,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715300276235</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Edit Progress #30:&#10;* Big 30! Made a janky boss that was meant to just be a regular enemy and enlarged it. A lot of the code isn't very good because I was just trying to do this as quickly as possible so that it would actually be in the game for this final submission.">
+      <option name="closed" value="true" />
+      <created>1715408139513</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1715408139513</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -373,7 +374,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="#12 &#10;&#10;*Added Menu Buttons &amp; the option to exit the game etc.&#10;*Fixed some bugs related to playermovement speed being independent from GameScale and the hitbox of the player being floats instead of ints creating problems when gamescale wasn't an integer." />
     <MESSAGE value="Edit Progress 13 &#10;&#10;*Added pause menu into the game and also the button associated with them&#10;*Working on adding volume slider to affect sound effects and music" />
     <MESSAGE value="Edit Progress 13.5 &#10;&#10;*Added pause menu into the game and also the button associated with them&#10;*Finished adding volume slider to affect sound effects and music and also create bounds so that the button cannot extend past the slider." />
     <MESSAGE value="Edit Progress 14&#10;&#10;*Added menu background image so that it's not just a white screen&#10;*Added an automatic scrolling funtion that allows the player to move to the level off their screen by checking position and creating an offset if they're in the first 20% or last 20% of the level." />
@@ -398,7 +398,8 @@
     <MESSAGE value="Edit Progress #27:&#10;* Save to reload to without new character implementation." />
     <MESSAGE value="Edit Progress #28:&#10;* Brought new character into the game and implemented most of the new possible states including a second combo attack." />
     <MESSAGE value="Edit Progress #29:&#10;* Added tutorial and worked on basic function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit Progress #29:&#10;* Added tutorial and worked on basic function" />
+    <MESSAGE value="Edit Progress #30:&#10;* Big 30! Made a janky boss that was meant to just be a regular enemy and enlarged it. A lot of the code isn't very good because I was just trying to do this as quickly as possible so that it would actually be in the game for this final submission." />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit Progress #30:&#10;* Big 30! Made a janky boss that was meant to just be a regular enemy and enlarged it. A lot of the code isn't very good because I was just trying to do this as quickly as possible so that it would actually be in the game for this final submission." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

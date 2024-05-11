@@ -68,12 +68,14 @@ public class Crab extends Enemy {
     }
 
     public int flipX() {
+        // Flips the direction of the crab in the X direction for movement
         if (walkDir == RIGHT)
             return width;
         return 0;
     }
 
     public int flipW() {
+        // Flips the width of the crab so that it appears to be moving the other direction
         if (walkDir == RIGHT)
             return -1;
         return 1;

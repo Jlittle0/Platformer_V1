@@ -277,7 +277,7 @@ public class Constants {
         public static final int DEAD = 10;
 
         public static int GetSpriteAmount(int playerAction) {
-            // Returns the number of parts for each action's animation)
+            // Returns the number of frames for each action's animation)
             switch (playerAction) {
                 case ATTACK_3:
                     return 10;

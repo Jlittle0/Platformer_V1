@@ -2,10 +2,12 @@ package entities;
 
 import gameStates.Playing;
 import main.Game;
+import utilz.Constants;
 
 import java.awt.geom.Rectangle2D;
 
 import static utilz.Constants.ANIMATION_SPEED;
+import static utilz.Constants.BossConstants.SHOCKER_SCALE;
 import static utilz.Constants.GRAVITY;
 import static utilz.HelperMethods.*;
 import static utilz.Constants.EnemyConstants.*;
@@ -17,7 +19,7 @@ public abstract class Enemy extends Entity {
     protected int walkDir = LEFT;
     protected int tileY;
     // In the future don't have an actual value for this and declare it inside each individual enemy
-    protected float attackDistance = Game.TILES_SIZE;
+    protected float attackDistance;
     protected boolean active = true;
     protected boolean attackChecked;
 
@@ -27,6 +29,17 @@ public abstract class Enemy extends Entity {
         maxHealth = GetMaxHealth(enemyType);
         currentHealth = maxHealth;
         setWalkSpeed();
+        setAttackDistance();
+    }
+
+    private void setAttackDistance() {
+        switch (enemyType) {
+            case CRAB:
+                attackDistance = Game.TILES_SIZE;
+                break;
+            case SHOCKER:
+                attackDistance = (int)(Game.TILES_SIZE * 2.5);
+        }
     }
 
     private void setWalkSpeed() {
@@ -36,6 +49,9 @@ public abstract class Enemy extends Entity {
                 break;
             case WORM:
                 walkSpeed = Game.SCALE * 0.1f;
+                break;
+            case SHOCKER:
+                walkSpeed = Game.SCALE * 0.35f;
                 break;
             default:
                 walkSpeed = Game.SCALE * 0.35f;
@@ -57,6 +73,8 @@ public abstract class Enemy extends Entity {
             inAir = false;
             hitbox.y = GetEntityYPosUnderRoofOrAboveFloor(hitbox, airSpeed);
             tileY = (int)(hitbox.y / Game.TILES_SIZE);
+                if (hitbox.height > Game.TILES_SIZE)
+                    tileY += hitbox.height / Game.TILES_SIZE;
         }
     }
 
@@ -76,8 +94,9 @@ public abstract class Enemy extends Entity {
     }
 
     protected void turnTowardsPlayer(Player player) {
-        if (player.hitbox.x > hitbox.x)
+        if (player.hitbox.x > hitbox.x) {
             walkDir = RIGHT;
+        }
         else
             walkDir = LEFT;
     }
@@ -114,9 +133,15 @@ public abstract class Enemy extends Entity {
         currentHealth -= amount;
         if (currentHealth <= 0) {
             currentHealth = 0;
-            newState(DEAD);
+            if (enemyType == SHOCKER)
+                newState(Constants.BossConstants.DEAD);
+            else
+                newState(DEAD);
         } else
-            newState(HIT);
+            if (enemyType == SHOCKER)
+                newState(Constants.BossConstants.HIT);
+            else
+                newState(HIT);
     }
 
     protected void checkEnemyHit(Rectangle2D.Float attackBox, Player player) {
@@ -126,16 +151,43 @@ public abstract class Enemy extends Entity {
     }
 
     protected void updateAnimationTick() {
-        aniTick++;
-        if (aniTick >= ANIMATION_SPEED) {
-            aniTick = 0;
-            aniIndex++;
-            if (aniIndex >= GetSpriteAmount(enemyType, state)) {
-                aniIndex = 0;
+        if (enemyType != SHOCKER) {
+            aniTick++;
+            if (aniTick >= ANIMATION_SPEED) {
+                aniTick = 0;
+                aniIndex++;
+                if (aniIndex >= GetSpriteAmount(enemyType, state)) {
+                    aniIndex = 0;
+                    switch (state) {
+                        case ATTACK, HIT -> state = IDLE;
+                        case DEAD -> active = false;
+                    }
+                }
+            }
+        }
+        else {
+            aniTick++;
+            if (aniTick >= ANIMATION_SPEED) {
+                aniTick = 0;
+                aniIndex++;
+                if (aniIndex >= Constants.BossConstants.GetSpriteAmount(enemyType, state)) {
+                    aniIndex = 0;
+                    switch (state) {
+                        case Constants.BossConstants.ATTACK_2:
+                            if (walkDir == RIGHT)
+                                hitbox.x += 40 * Game.SCALE * SHOCKER_SCALE;
+                            else
+                                hitbox.x -= 40 * Game.SCALE * SHOCKER_SCALE;
+                        case Constants.BossConstants.ATTACK_1:
+                        case Constants.BossConstants.ATTACK_3:
+                        case Constants.BossConstants.HIT:
+                            state = IDLE;
+                            break;
+                        case Constants.BossConstants.DEAD:
+                            active = false;
+                            break;
 
-                switch (state) {
-                    case ATTACK,HIT -> state = IDLE;
-                    case DEAD -> active = false;
+                    }
                 }
             }
         }

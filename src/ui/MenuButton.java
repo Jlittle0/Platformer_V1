@@ -35,9 +35,8 @@ public class MenuButton {
         // Loads the button images into imgs
         imgs = new BufferedImage[3];
         BufferedImage temp = LoadSave.GetSpriteAtlas(LoadSave.MENU_BUTTONS);
-        for (int i = 0; i < imgs.length; i++) {
+        for (int i = 0; i < imgs.length; i++)
             imgs[i] = temp.getSubimage(i * MB_DEFAULT_WIDTH, rowIndex * MB_DEFAULT_HEIGHT, MB_DEFAULT_WIDTH, MB_DEFAULT_HEIGHT);
-        }
     }
 
     public void draw(Graphics g) {

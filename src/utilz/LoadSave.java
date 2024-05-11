@@ -46,6 +46,7 @@ public class LoadSave {
     public static final String GAME_OVER = "gameover.png";
     public static final String GAME_WON = "congratulations.png";
     public static final String TUTORIAL_PLATFORM_2 = "tutorial_platform_2.png";
+    public static final String SHOCKER_ATLAS = "shocker_atlas.png";
 
     public static BufferedImage GetSpriteAtlas(String fileName) {
         // Method idea taken from stackOverflow (forgot the username but I'll find it and put
@@ -71,7 +72,7 @@ public class LoadSave {
         // Gets the maps for every (manually countered) level and returns them in an array
         // of BufferedImages. Might try to make this work regardless of the size so that the
         // 3 isn't just a magic number but not currently sure how to do that.
-        int numLevels = 3;
+        int numLevels = 4;
         BufferedImage[] imgs = new BufferedImage[numLevels];
         for (int i = 0; i < numLevels; i++) {
             Image temp = null;

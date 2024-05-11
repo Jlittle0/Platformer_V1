@@ -9,14 +9,18 @@ import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import static utilz.Constants.Directions.RIGHT;
 import static utilz.Constants.EnemyConstants.*;
+import static utilz.Constants.BossConstants.*;
+
 
 public class EnemyManager {
 
     private Playing playing;
-    private BufferedImage[][] crabArr, wormArr;
+    private BufferedImage[][] crabArr, wormArr, shockerArr;
     private ArrayList<Crab> crabs = new ArrayList<Crab>();
     private ArrayList<Worm> worms = new ArrayList<Worm>();
+    private ArrayList<Shocker> shockers = new ArrayList<Shocker>();
 
     public EnemyManager(Playing playing) {
         this.playing = playing;
@@ -27,6 +31,7 @@ public class EnemyManager {
         // Gets the # of crabs and their locations from the level data and adds it to crabs
         crabs = level.getCrabs();
         worms = level.getWorms();
+        shockers = level.getShockers();
     }
 
     public void update(int[][] lvlData, Player player) {
@@ -43,6 +48,11 @@ public class EnemyManager {
             if (w.isActive()) {
                 w.update(lvlData, player);
             }
+        for (Shocker s : shockers)
+            if (s.isActive()) {
+                s.update(lvlData, player);
+                isAnyActive = true;
+            }
         if (!isAnyActive)
             playing.setLevelCompleted(true);
     }
@@ -50,6 +60,7 @@ public class EnemyManager {
     public void draw(Graphics g, int xLvlOffset) {
         drawCrabs(g, xLvlOffset);
         drawWorms(g, xLvlOffset);
+        drawShockers(g, xLvlOffset);
     }
 
     private void drawCrabs(Graphics g, int xLvlOffset) {
@@ -67,11 +78,28 @@ public class EnemyManager {
             }
     }
 
+    private void drawShockers(Graphics g, int xLvlOffset) {
+        for (Shocker s : shockers)
+            if (s.isActive()) {
+                if (s.getDir() == RIGHT) {
+                    g.drawImage(shockerArr[s.getEnemyState()][s.getAniIndex()], (int) s.getHitbox().x - SHOCKER_DRAWOFFSET_X - xLvlOffset + s.flipX(), (int) s.getHitbox().y - SHOCKER_DRAWOFFSET_Y, SHOCKER_WIDTH * s.flipW(), SHOCKER_HEIGHT, null);
+                }
+                else
+                    g.drawImage(shockerArr[s.getEnemyState()][s.getAniIndex()], (int) s.getHitbox().x - SHOCKER_DRAW_OFFSET_X_LEFT - xLvlOffset + s.flipX(), (int) s.getHitbox().y - SHOCKER_DRAWOFFSET_Y, SHOCKER_WIDTH * s.flipW(), SHOCKER_HEIGHT, null);
+            }
+    }
+
     public void checkEnemyHit(Rectangle2D.Float attackBox) {
         for (Crab c: crabs)
             if (c.isActive())
                 if (attackBox.intersects(c.getHitbox())) {
                     c.hurt((int)(10 / playing.getDifficulty()));
+                    return;
+                }
+        for (Shocker s : shockers)
+            if (s.isActive())
+                if (attackBox.intersects(s.getHitbox())) {
+                    s.hurt((int)(10 / playing.getDifficulty()));
                     return;
                 }
 //        for (Worm w : worms)
@@ -95,6 +123,13 @@ public class EnemyManager {
         for (int j = 0; j < wormArr.length; j++)
             for (int i = 0; i < wormArr[j].length; i++)
                 wormArr[j][i] = temp.getSubimage(i * WORM_DEFAULT_WIDTH, j * WORM_DEFAULT_HEIGHT, WORM_DEFAULT_WIDTH, WORM_DEFAULT_HEIGHT);
+
+        shockerArr = new BufferedImage[9][10];
+        temp = LoadSave.GetSpriteAtlas(LoadSave.SHOCKER_ATLAS);
+        for (int j = 0; j < shockerArr.length; j++)
+            for (int i = 0; i < shockerArr[j].length; i++)
+                shockerArr[j][i] = temp.getSubimage(i * SHOCKER_DEFAULT_WIDTH, j * SHOCKER_DEFAULT_HEIGHT, SHOCKER_DEFAULT_WIDTH, SHOCKER_DEFAULT_HEIGHT);
+
     }
 
     public void resetAllEnemies() {
@@ -107,6 +142,3 @@ public class EnemyManager {
             c.resetEnemy();
     }
 }
-
-// Add a boss that's a goblin with a large sword that pops out of the tree after the user enters the boss area and then there's a pause on the screen
-// with a ... until eventually there's a text bubble that is a growling and an animation players where the goblin king pops out of the massive tree stump

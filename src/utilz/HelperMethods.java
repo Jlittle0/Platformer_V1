@@ -1,6 +1,7 @@
 package utilz;
 
 import entities.Crab;
+import entities.Shocker;
 import entities.Worm;
 import gameStates.Playing;
 import main.Game;
@@ -10,8 +11,7 @@ import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-import static utilz.Constants.EnemyConstants.CRAB;
-import static utilz.Constants.EnemyConstants.WORM;
+import static utilz.Constants.EnemyConstants.*;
 import static utilz.Constants.ObjectConstants.*;
 
 import objects.Cannon;
@@ -80,7 +80,9 @@ public class HelperMethods {
     public static float GetEntityYPosUnderRoofOrAboveFloor(Rectangle2D.Float hitbox, float airSpeed) {
         // Makes sure that entities can't jump or fall through a floor by doing the same thing as
         // the method above except for the roof and floor instead of left and right walls
-        int currentTile = (int)(hitbox.y / Game.TILES_SIZE);
+        int currentTile = currentTile = (int)(hitbox.y / Game.TILES_SIZE);
+        if (hitbox.y + hitbox.height - hitbox.y > Game.TILES_SIZE)
+            currentTile += 1;
         if (airSpeed > 0) {
             // Falling - Touching floor
             int tileYPos = currentTile * Game.TILES_SIZE;
@@ -187,6 +189,18 @@ public class HelperMethods {
                 int value = color.getGreen();
                 if (value == WORM)
                     list.add(new Worm(i * Game.TILES_SIZE, j * Game.TILES_SIZE));
+            }
+        return list;
+    }
+
+    public static ArrayList<Shocker> GetShockers(BufferedImage img) {
+        ArrayList<Shocker> list = new ArrayList<Shocker>();
+        for (int j = 0; j < img.getHeight(); j++)
+            for (int i = 0; i < img.getWidth(); i++) {
+                Color color = new Color(img.getRGB(i, j));
+                int value = color.getGreen();
+                if (value == SHOCKER)
+                    list.add(new Shocker(i * Game.TILES_SIZE, j * Game.TILES_SIZE));
             }
         return list;
     }

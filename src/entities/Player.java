@@ -133,7 +133,7 @@ public class Player extends Entity {
 
     private void checkAttack() {
         // Checks whether or not an attack has already started and if so return early
-        if (attackChecked || (aniIndex != 0 && aniTick != 10))
+        if (attackChecked || (aniIndex != 0 && aniTick != 8))
             return;
         attackChecked = true;
         // Eventually checks of an enemy hitbox overlaps with the player's attack and deals damage

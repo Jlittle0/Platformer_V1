@@ -67,12 +67,64 @@ public class Constants {
 
     }
 
+    public static class BossConstants {
+        public static final float SHOCKER_SCALE = 2.0f;
+
+        public static final int SHOCKER = 3;
+
+        public static final int IDLE = 0;
+        public static final int WALKING = 1;
+        public static final int JUMPING = 2;
+        public static final int FALLING = 3;
+        public static final int ATTACK_1 = 4;
+        public static final int ATTACK_2 = 5;
+        public static final int ATTACK_3 = 6;
+        public static final int HIT = 7;
+        public static final int DEAD = 8;
+
+        public static final int SHOCKER_DEFAULT_WIDTH = 88;
+        public static final int SHOCKER_DEFAULT_HEIGHT = 33;
+        public static final int SHOCKER_WIDTH = (int)(SHOCKER_DEFAULT_WIDTH * Game.SCALE * SHOCKER_SCALE);
+        public static final int SHOCKER_HEIGHT = (int)(SHOCKER_DEFAULT_HEIGHT* Game.SCALE * SHOCKER_SCALE);
+
+        public static final int SHOCKER_DRAWOFFSET_X = (int)(20 * Game.SCALE *SHOCKER_SCALE);
+        public static final int SHOCKER_DRAW_OFFSET_X_LEFT = (int)(54 * Game.SCALE * SHOCKER_SCALE);
+        public static final int SHOCKER_DRAWOFFSET_Y = (int)(9 * Game.SCALE * SHOCKER_SCALE);
+
+        public static int GetSpriteAmount(int enemyType, int enemyState) {
+            switch (enemyType) {
+                case SHOCKER:
+                    switch (enemyState) {
+                        case IDLE:
+                            return 6;
+                        case WALKING:
+                        case ATTACK_2:
+                            return 8;
+                        case ATTACK_1:
+                            return 10;
+                        case HIT:
+                            return 2;
+                        case DEAD:
+                            return 5;
+                        case JUMPING:
+                        case FALLING:
+                            return 3;
+                        case ATTACK_3:
+                            return 9;
+                    }
+            }
+            return 0;
+        }
+    }
+
     public static class EnemyConstants {
         // Constants for enemy type
         public static final int CRAB = 0;
         public static final int WORM = 1;
+        public static final int NIGHTHOUND = 2;
+        public static final int SHOCKER = 3;
 
-        // Crab-specific state constants
+        // Enemy-specific state constants
         public static final int IDLE = 0;
         public static final int RUNNING = 1;
         public static final int ATTACK = 2;
@@ -136,6 +188,8 @@ public class Constants {
             switch(enemyType) {
                 case CRAB:
                     return 10;
+                case SHOCKER:
+                    return 100;
                 default:
                     return 1;
             }
@@ -146,6 +200,8 @@ public class Constants {
             switch(enemyType) {
                 case CRAB:
                     return 15;
+                case SHOCKER:
+                    return 25;
                 default:
                     return 0;
             }

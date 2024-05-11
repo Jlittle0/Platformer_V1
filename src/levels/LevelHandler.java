@@ -24,8 +24,8 @@ public class LevelHandler {
     public void loadNextLevel() {
         lvlIndex++;
         if (lvlIndex >= levels.size()) {
-                lvlIndex = 0;
                 game.getPlaying().setGameCompleted(true);
+                lvlIndex = 0;
         }
 
         Level newLevel = levels.get(lvlIndex);
